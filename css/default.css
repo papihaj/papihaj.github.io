@@ -2062,7 +2062,7 @@ a.btn.disabled,fieldset[disabled] a.btn{
     background-color:transparent
 }
 .btn-link[disabled]:focus,.btn-link[disabled]:hover,fieldset[disabled] .btn-link:focus,fieldset[disabled] .btn-link:hover{
-    color:#777;
+    color:#000;
     text-decoration:none
 }
 .btn-group-lg>.btn,.btn-lg{
@@ -2673,7 +2673,7 @@ tbody.collapse.in{
     padding-right:15px;
     padding-left:15px;
     border-top:1px solid transparent;
-    box-shadow:inset 0 1px 0 hsla(0,0%,100%,.1);
+    box-shadow:inset 0 1px 0 hsla(0, 0%, 100%, 0);
     -webkit-overflow-scrolling:touch
 }
 .navbar-collapse:after,.navbar-collapse:before{
@@ -4129,7 +4129,7 @@ textarea{
         background-color:transparent
     }
     .navbar-default .navbar-collapse{
-        background-color:#fff
+        background-color:#000
     }
 }
 .nav>li>a{
