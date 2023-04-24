@@ -2194,7 +2194,7 @@ tbody.collapse.in{
     background-color:#001aff
 }
 .dropdown-menu>.disabled>a,.dropdown-menu>.disabled>a:focus,.dropdown-menu>.disabled>a:hover{
-    color:#777
+    color:#000
 }
 .dropdown-menu>.disabled>a:focus,.dropdown-menu>.disabled>a:hover{
     text-decoration:none;
@@ -2222,7 +2222,7 @@ tbody.collapse.in{
     padding:3px 20px;
     font-size:10px;
     line-height:1.78;
-    color:#777;
+    color:#000;
     white-space:nowrap
 }
 .dropdown-backdrop{
@@ -2521,10 +2521,10 @@ tbody.collapse.in{
     background-color:transparent
 }
 .nav>li.disabled>a{
-    color:#777
+    color:#000
 }
 .nav>li.disabled>a:focus,.nav>li.disabled>a:hover{
-    color:#777;
+    color:#000;
     text-decoration:none;
     background-color:transparent;
     cursor:not-allowed
@@ -2973,7 +2973,7 @@ tbody.collapse.in{
     background-color:transparent
 }
 .navbar-default .navbar-text{
-    color:#777
+    color:#000
 }
 .navbar-default .navbar-nav>li>a{
     color:#000

@@ -1,7 +1,5 @@
-name: Kylie Ying
-# permalink: /:title/
-# baseurl: https://kylieying.com
-# baseurl: ""
+name: Papiha Joharapurkar
+
 permalink: /blog/:title
 
 # seo tag
@@ -9,4 +7,4 @@ plugins:
   - jekyll-seo-tag
 
 # Google Analytics
-google_analytics: G-TEEDE1GB8S
+# google_analytics: G-TEEDE1GB8S
