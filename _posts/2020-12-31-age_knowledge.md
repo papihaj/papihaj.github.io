@@ -94,9 +94,15 @@ The framework is scientifically-based and transparent in its creation and apart 
 
 ## References
 Ankley, G. T., Bennett, R. S., Erickson, R. J., Hoff, D. J., Hornung, M. W., Johnson, R. D., Mount, D. R., Nichols, J. W., Russom, C. L., Schmieder, P. K., Serrrano, J. A., Tietge, J. E., & Villeneuve, D. L. (2010). Adverse outcome pathways: A conceptual framework to support ecotoxicology research and risk assessment. In Environmental Toxicology and Chemistry (Vol. 29, Issue 3, pp. 730–741). Wiley Blackwell. https://doi.org/10.1002/etc.34
+
 Coady, K., Browne, P., Embry, M., Hill, T., Leinala, E., Steeger, T., Maślankiewicz, L., & Hutchinson, T. (2019). When Are Adverse Outcome Pathways and Associated Assays “Fit for Purpose” for Regulatory Decision-Making and Management of Chemicals? Integrated Environmental Assessment and Management, 15(4), 633–647. https://doi.org/10.1002/ieam.4153
+
 Halappanavar, S., Van Den Brule, S., Nymark, P., Gaté, L., Seidel, C., Valentino, S., Zhernovkov, V., Høgh Danielsen, P., De Vizcaya, A., Wolff, H., Stöger, T., Boyadziev, A., Poulsen, S. S., Sørli, J. B., & Vogel, U. (2020). Adverse outcome pathways as a tool for the design of testing strategies to support the safety assessment of emerging advanced materials at the nanoscale. In Particle and Fibre Toxicology (Vol. 17, Issue 1, p. 16). BioMed Central Ltd. https://doi.org/10.1186/s12989-020-00344-4
+
 Landhuis, E. (2016). Scientific literature: Information overload. Nature, 535(7612), 457–458. https://doi.org/10.1038/nj7612-457a
+
 Langley, G., Austin, C. P., Balapure, A. K., Birnbaum, L. S., Bucher, J. R., Fentem, J., Fitzpatrick, S. C., Fowle, J. R., Kavlock, R. J., Kitano, H., Lidbury, B. A., Muotri, A. R., Peng, S. Q., Sakharov, D., Seidle, T., Trez, T., Tonevitsky, A., van de Stolpe, A., Whelan, M., & Willett, C. (2015). Lessons from toxicology: Developing a 21st-century paradigm for medical research. Environmental Health Perspectives, 123(11), A268–A272. https://doi.org/10.1289/ehp.1510345
+
 Madden, J. C., Rogiers, V., & Vinken, M. (2014). Application of in silico and in vitro methods in the development of adverse outcome pathway constructs in wildlife. Philosophical Transactions of the Royal Society B: Biological Sciences, 369(1656), 20130584. https://doi.org/10.1098/rstb.2013.0584
+
 OECD. (2013). Adverse Outcome Pathways, Molecular Screening and Toxicogenomics. http://www.oecd.org/chemicalsafety/testing/adverse-outcome-pathways-molecular-screening-and-toxicogenomics.htm
