@@ -46,7 +46,7 @@
   code, .mono { font-family: 'Geist Mono', ui-monospace, monospace; }
   .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-  header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 28px; padding-bottom: 28px; }
+  header.wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 56px; padding-bottom: 28px; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 16px; }
   nav { display: flex; align-items: center; gap: 24px; font-size: 14px; color: var(--muted); }
   .icon-btn {
@@ -100,11 +100,13 @@
   .features p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
 
   section.narrow { margin: 140px auto 0; max-width: 640px; }
+  main { padding-bottom: 120px; }
   section.narrow > h2 { margin: 0 0 28px; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; }
   ol.steps { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 18px; font-size: 15px; }
   ol.steps li { display: flex; gap: 16px; }
   ol.steps span { color: var(--faint); }
-  .label { margin: 32px 0 10px; font-size: 13px; color: var(--faint); }
+  .step { flex: 1; min-width: 0; }
+  .step .cmd { margin-top: 12px; max-width: none; }
 
   details { border-top: 1px solid var(--line); }
   details:last-child { border-bottom: 1px solid var(--line); }
@@ -118,10 +120,6 @@
   details p { margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: var(--muted); }
   details p a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
 
-  footer {
-    margin-top: 140px; padding-top: 32px; padding-bottom: 48px; border-top: 1px solid var(--line);
-    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--faint);
-  }
   :focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
@@ -172,11 +170,14 @@
     <h2>Install</h2>
     <ol class="steps">
       <li><span class="mono">1</span>Plug in your F99 with a USB-C data cable.</li>
-      <li><span class="mono">2</span>Open Terminal and paste the command above.</li>
+      <li><span class="mono">2</span><div class="step">Open Terminal and paste this command:
+        <div class="cmd mono">
+          <span class="prompt" aria-hidden="true">$</span>
+          <code id="cmd2">curl -fsSL https://joharapurkar.com/f99/install | bash</code>
+          <button class="copy" type="button" data-copy="cmd2">Copy</button>
+        </div></div></li>
       <li><span class="mono">3</span>Allow Input Monitoring when the Mac asks.</li>
     </ol>
-    <p class="label">Update: run the same command again.</p>
-    <p class="label"><a href="install">Read the install script</a></p>
   </section>
 
   <section class="narrow" id="faq">
@@ -201,11 +202,6 @@
       <p>Email <a href="mailto:papihajoharapurkar@gmail.com?subject=F99%20Mood%20feedback">papihajoharapurkar@gmail.com</a>. Ideas, bugs and effects you’d like to see are all welcome.</p></details>
   </section>
 </main>
-
-<footer class="wrap">
-  <span>Free and unofficial. Not made by or connected to AULA or EPOMAKER.</span>
-  <span><a href="https://github.com/papihaj/aula-f99-mood">GitHub</a> · <a href="mailto:papihajoharapurkar@gmail.com?subject=F99%20Mood%20feedback">Send feedback</a> · <a href="https://joharapurkar.com">joharapurkar.com</a></span>
-</footer>
 
 <script>
 (function () {
