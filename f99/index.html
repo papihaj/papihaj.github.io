@@ -106,18 +106,6 @@
   ol.steps span { color: var(--faint); }
   .label { margin: 32px 0 10px; font-size: 13px; color: var(--faint); }
 
-  .star {
-    margin-top: 40px; padding: 20px 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--card);
-    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
-  }
-  .star p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted); }
-  .star strong { display: block; color: var(--text); font-weight: 600; }
-  .star a {
-    flex-shrink: 0; min-height: 40px; padding: 0 16px; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px;
-    background: var(--text); color: var(--bg); font-size: 14px; font-weight: 500;
-  }
-  .star a:hover { text-decoration: none; opacity: 0.9; }
-
   details { border-top: 1px solid var(--line); }
   details:last-child { border-bottom: 1px solid var(--line); }
   summary {
@@ -189,28 +177,24 @@
     </ol>
     <p class="label">Update: run the same command again.</p>
     <p class="label"><a href="install">Read the install script</a></p>
-    <div class="star">
-      <p><strong>Enjoying F99 Mood?</strong>A star on GitHub helps other F99 owners find it.</p>
-      <a href="https://github.com/papihaj/aula-f99-mood" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>Star on GitHub</a>
-    </div>
   </section>
 
   <section class="narrow" id="faq">
     <h2>FAQ</h2>
     <details><summary>Is there an official Mac app?</summary>
-      <p>No. AULA’s software for the F99 only runs on Windows. F99 Mood brings the lighting to your Mac.</p></details>
+      <p>No. I wanted the official app, but I learned that it only runs on Windows. That’s why I made F99 Mood: so I could set up the lighting and music on my MacBook. It moves with music, and it’s free.</p></details>
     <details><summary>Can the keys move with music?</summary>
       <p>Yes, like AULA’s Windows app. On a Mac the keys follow whatever is playing, or the room through your microphone.</p></details>
     <details><summary>Is it free?</summary>
-      <p>Yes, free.</p></details>
+      <p>Yes. A <a href="https://github.com/papihaj/aula-f99-mood">star on GitHub</a> would help me, though.</p></details>
     <details><summary>Does it work wirelessly?</summary>
-      <p>Not yet. Plug the keyboard in with a USB-C data cable. Some cables only charge, and those won’t work.</p></details>
+      <p>Yes, after you set it up. Plug the keyboard in with a USB-C data cable to choose your lighting, and the keyboard saves it. Then you can switch to Bluetooth and the lighting stays. Live effects and music mode need the cable, because they send the lighting to the keyboard as it changes. Some cables only charge, and those won’t work.</p></details>
     <details><summary>Why does it ask for Input Monitoring and Accessibility?</summary>
       <p>Input Monitoring lets it talk to the keyboard over USB. Your Mac asks this of any app that connects to a keyboard. Accessibility is only for typing effects, which light the keys you press, and for macros that type text for you. You can say no to Accessibility and every other effect still works. The app never goes online, and nothing you type leaves your Mac.</p></details>
     <details><summary>Will it change my keyboard for good?</summary>
       <p>No. Settings › Restore original lighting puts back what your keyboard had before.</p></details>
     <details><summary>Is it made by AULA or EPOMAKER?</summary>
-      <p>No. It’s an independent app, not made by or connected to either company.</p></details>
+      <p>No. It’s an independent app, made by me. It isn’t connected to either company.</p></details>
     <details><summary>How do I send feedback or report a problem?</summary>
       <p>Email <a href="mailto:papihajoharapurkar@gmail.com?subject=F99%20Mood%20feedback">papihajoharapurkar@gmail.com</a>. Ideas, bugs and effects you’d like to see are all welcome.</p></details>
   </section>
