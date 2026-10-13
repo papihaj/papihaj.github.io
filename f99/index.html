@@ -107,6 +107,8 @@
   ol.steps span { color: var(--faint); }
   .step { flex: 1; min-width: 0; }
   .step .cmd { margin-top: 12px; max-width: none; }
+  .step .alt { margin: 12px 0 0; line-height: 1.55; color: var(--muted); }
+  .step .alt a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
 
   details { border-top: 1px solid var(--line); }
   details:last-child { border-bottom: 1px solid var(--line); }
@@ -175,8 +177,9 @@
           <span class="prompt" aria-hidden="true">$</span>
           <code id="cmd2">curl -fsSL https://joharapurkar.com/f99/install | bash</code>
           <button class="copy" type="button" data-copy="cmd2">Copy</button>
-        </div></div></li>
-      <li><span class="mono">3</span>Allow Input Monitoring when the Mac asks.</li>
+        </div>
+        <p class="alt">Or <a href="https://github.com/papihaj/aula-f99-mood/releases/latest">download the DMG file from GitHub</a>, open it, and drag F99 Mood into Applications. The first time you open the app, go to System Settings › Privacy &amp; Security and click Open Anyway.</p></div></li>
+      <li><span class="mono">3</span>Allow the permissions when your Mac asks.</li>
     </ol>
   </section>
 
@@ -190,8 +193,6 @@
       <p>Yes, like AULA’s Windows app. On a Mac the keys follow whatever is playing, or the room through your microphone.</p></details>
     <details><summary>Is it free?</summary>
       <p>Yes. A <a href="https://github.com/papihaj/aula-f99-mood">star on GitHub</a> would help me, though.</p></details>
-    <details><summary>Is it on the App Store?</summary>
-      <p>Not yet. If more people are interested, let me know, and I’ll make it into an app.</p></details>
     <details><summary>Does it work wirelessly?</summary>
       <p>Yes, after you set it up. Plug the keyboard in with a USB-C data cable to choose your lighting, and the keyboard saves it. Then you can switch to Bluetooth and the lighting stays. Live effects and music mode need the cable, because they send the lighting to the keyboard as it changes. Some cables only charge, and those won’t work.</p></details>
     <details><summary>Why does it ask for Input Monitoring and Accessibility?</summary>
