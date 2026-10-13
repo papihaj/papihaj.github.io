@@ -1,0 +1,88 @@
+#!/bin/bash
+# Installs F99 Mood, a menu bar app for the EPOMAKER x AULA F99 keyboard.
+#
+#   curl -fsSL https://joharapurkar.com/f99/install | bash
+#   curl -fsSL https://joharapurkar.com/f99/install | bash -s -- --uninstall
+#
+# What it does: downloads F99-Mood.zip from joharapurkar.com/f99, checks it
+# against its SHA-256, puts "F99 Mood.app" in /Applications (or
+# ~/Applications if that isn't writable) and opens it. Running it again
+# updates the app. Your settings stay in ~/Library/Application Support/F99 Mood.
+
+# Everything is inside main, so a half-downloaded script does nothing.
+main() {
+  set -euo pipefail
+
+  # F99_MOOD_BASE and F99_MOOD_DEST are for testing the script locally.
+  local base="${F99_MOOD_BASE:-https://joharapurkar.com/f99}"
+  local name="F99 Mood.app"
+
+  say()  { printf '  %s\n' "$*"; }
+  fail() { printf '  error: %s\n' "$*" >&2; exit 1; }
+
+  [[ "$(uname -s)" == "Darwin" ]] || fail "F99 Mood is a Mac app."
+
+  quit_app() {
+    osascript -e 'tell application id "local.f99mood" to quit' >/dev/null 2>&1 || true
+    for _ in 1 2 3 4 5 6 7 8 9 10; do pgrep -x F99Mood >/dev/null || return 0; sleep 0.3; done
+    pkill -x F99Mood 2>/dev/null || true
+  }
+
+  if [[ "${1:-}" == "--uninstall" ]]; then
+    quit_app
+    local removed=0
+    for dir in /Applications "$HOME/Applications"; do
+      if [[ -d "$dir/$name" ]]; then rm -rf "$dir/$name"; say "✓ removed $dir/$name"; removed=1; fi
+    done
+    [[ $removed == 1 ]] || say "F99 Mood wasn't installed."
+    say "Your settings are still in ~/Library/Application Support/F99 Mood."
+    say "Delete that folder too if you won't reinstall."
+    return 0
+  fi
+
+  # macOS 13 or later (the menu bar app and open-at-login need 13). Music
+  # from the Mac's own sound needs 14.2; older Macs use the microphone.
+  local ver major
+  ver="$(sw_vers -productVersion)"
+  major="${ver%%.*}"
+  if (( major < 13 )); then
+    fail "F99 Mood needs macOS 13 Ventura or later. This Mac has $ver."
+  fi
+
+  # Not local: the EXIT trap runs after main has returned.
+  tmp="$(mktemp -d)"
+  trap 'rm -rf "${tmp:-}"' EXIT
+
+  say "Downloading F99 Mood…"
+  curl -fsSL "$base/F99-Mood.zip" -o "$tmp/F99-Mood.zip" || fail "download failed. Check your connection."
+  curl -fsSL "$base/F99-Mood.zip.sha256" -o "$tmp/F99-Mood.zip.sha256" || fail "couldn't get the checksum."
+
+  local want got
+  want="$(awk '{print $1}' "$tmp/F99-Mood.zip.sha256")"
+  got="$(shasum -a 256 "$tmp/F99-Mood.zip" | awk '{print $1}')"
+  [[ -n "$want" && "$want" == "$got" ]] || fail "the download doesn't match its checksum. Nothing was installed."
+  say "✓ downloaded and checked"
+
+  ditto -x -k "$tmp/F99-Mood.zip" "$tmp/unzipped"
+  [[ -d "$tmp/unzipped/$name" ]] || fail "the download didn't contain $name."
+
+  local dest="${F99_MOOD_DEST:-/Applications}"
+  [[ -w "$dest" ]] || { dest="$HOME/Applications"; mkdir -p "$dest"; }
+
+  quit_app
+  rm -rf "$dest/$name"
+  ditto "$tmp/unzipped/$name" "$dest/$name"
+  xattr -dr com.apple.quarantine "$dest/$name" 2>/dev/null || true
+  say "✓ installed to $dest"
+
+  open "$dest/$name"
+  say "✓ opened. Look for it in your menu bar."
+  say ""
+  say "Plug in your F99 with a USB-C data cable, and allow Input"
+  say "Monitoring when your Mac asks."
+  say ""
+  say "Enjoying it? A star on GitHub helps other F99 owners find it:"
+  say "https://github.com/papihaj/aula-f99-mood"
+}
+
+main "$@"
