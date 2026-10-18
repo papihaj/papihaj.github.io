@@ -191,6 +191,8 @@
       <p>No. I wanted the official app, but I learned that it only runs on Windows. That’s why I made F99 Mood: so I could set up the lighting and music on my MacBook. It moves with music, and it’s free.</p></details>
     <details><summary>Can the keys move with music?</summary>
       <p>Yes, like AULA’s Windows app. On a Mac the keys follow whatever is playing, or the room through your microphone.</p></details>
+    <details><summary>What’s your favourite mood?</summary>
+      <p>Dance to music. To try it, put on “Joy” by RAYE or “Tití Me Preguntó” by Bad Bunny and watch the keys move with the beat.</p></details>
     <details><summary>Is it free?</summary>
       <p>Yes. A <a href="https://github.com/papihaj/aula-f99-mood">star on GitHub</a> would help me, though.</p></details>
     <details><summary>Does it work wirelessly?</summary>
@@ -244,9 +246,9 @@
     ['Campfire', function (x, y, i, t) { var n = rnd(i * 7 + Math.floor(t * 8)); return [8 + 28 * n, 100, 30 + 22 * n + y * 10]; }],
     ['Matrix', function (x, y, i, t) { var col = Math.floor(x * 19), head = ((t * 2.5 + rnd(col + 1) * 9) % 9) - 1.5, d = head - y * 5; return d >= 0 && d < 3 ? [135, 90, 62 - d * 16] : [135, 60, 10]; }],
     ['Typing Heatmap', function (x, y, i, t, label) { var f = HEAT[label] != null ? HEAT[label] : .04; return [230 - 230 * f, 90, 28 + 30 * f]; }],
-    ['Rainbow Wheel', function (x, y, i, t) { return [(x * 360 + t * 50) % 360, 90, 60]; }],
+    ['Rainbow', function (x, y, i, t) { return [(x * 360 + t * 50) % 360, 90, 60]; }],
     ['Focus', function () { return [38, 40, 86]; }],
-    ['Lights out', function () { return null; }],
+    ['Pastel Ripples', function (x, y, i, t) { return [(x * 300 + t * 20) % 360, 80, 72]; }],
   ];
 
   var rowsEl = document.getElementById('rows'), strip = document.getElementById('strip');
