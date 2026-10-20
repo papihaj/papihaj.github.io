@@ -93,6 +93,7 @@
     min-height: 44px; padding: 0 16px; border-radius: 999px; cursor: pointer;
     border: 1px solid var(--line); background: transparent; color: var(--muted); font: 14px 'Geist', system-ui, sans-serif;
   }
+  .more { align-self: center; padding: 0 6px; color: var(--muted); font: 14px 'Geist', system-ui, sans-serif; }
   .mood[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
 
   .features { margin-top: 120px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
@@ -240,25 +241,16 @@
   ];
   var rnd = function (n) { var x = Math.sin(n * 12.9898) * 43758.5453; return x - Math.floor(x); };
   var HEAT = { E: 1, T: .9, A: .85, O: .8, I: .75, N: .75, S: .7, R: .65, H: .6, L: .5, D: .45, C: .4, U: .35, M: .3, '': 1, delete: .6, return: .4, shift: .3, cmd: .35, Y: .2, P: .2, G: .2, W: .25, F: .25, B: .15, V: .12 };
-  // The app's moods today: live effects (drawn by the Mac) first, then the
-  // keyboard's own effects. Each returns [hue, saturation, lightness].
-  var WASD = { W: 1, A: 1, S: 1, D: 1, '↑': 1, '←': 1, '↓': 1, '→': 1 };
+  // Seven of the app's moods, then "and more". Each returns [hue,
+  // saturation, lightness].
   var MOODS = [
     ['Neon Cascade', function (x, y, i, t) { return [300 - ((((x * .8 + y * .5 - t * .12) % 1) + 1) % 1) * 110, 95, 62]; }],
     ['Electric Ripples', function (x, y, i, t) { var d = Math.hypot((x - .5) * 3, y - .5), w = Math.pow(.5 + .5 * Math.sin(d * 9 - t * 3), 3); return [235 + 45 * w, 90, 16 + 46 * w]; }],
-    ['Matrix', function (x, y, i, t) { var col = Math.floor(x * 19), head = ((t * 2.5 + rnd(col + 1) * 9) % 9) - 1.5, d = head - y * 5; return d >= 0 && d < 3 ? [135, 90, 62 - d * 16] : [135, 60, 10]; }],
-    ['Campfire', function (x, y, i, t) { var n = rnd(i * 7 + Math.floor(t * 8)); return [8 + 28 * n, 100, 30 + 22 * n + y * 10]; }],
-    ['Aurora', function (x, y, i, t) { return [165 + 70 * Math.sin(x * 4 + t * .5 + y * 1.5), 75, 52 + 8 * Math.sin(x * 3 - t * .3)]; }],
-    ['Typing Heatmap', function (x, y, i, t, label) { var f = HEAT[label] != null ? HEAT[label] : .04; return [230 - 230 * f, 90, 28 + 30 * f]; }],
-    ['WASD', function (x, y, i, t, label) { return WASD[label] ? [272, 85, 62] : [272, 35, 16]; }],
-    ['Pastel Ripples', function (x, y, i, t) { return [(x * 300 + t * 20) % 360, 80, 72]; }],
     ['Colorful Rainbow Vibes', function (x, y, i, t) { var p = (Math.abs((x - .5) * 3) - Math.abs(y - .5)) * .6 - t * 1.25; return [((p * 360) % 360 + 360) % 360, 85, 76]; }],
-    ['Focus', function () { return [38, 40, 86]; }],
-    ['Gaming', function (x, y, i, t) { var n = Math.floor(t * 4), hit = rnd(i * 13 + n) > .93; return hit ? [0, 95, 55] : [0, 60, 9]; }],
+    ['Aurora', function (x, y, i, t) { return [165 + 70 * Math.sin(x * 4 + t * .5 + y * 1.5), 75, 52 + 8 * Math.sin(x * 3 - t * .3)]; }],
+    ['Matrix', function (x, y, i, t) { var col = Math.floor(x * 19), head = ((t * 2.5 + rnd(col + 1) * 9) % 9) - 1.5, d = head - y * 5; return d >= 0 && d < 3 ? [135, 90, 62 - d * 16] : [135, 60, 10]; }],
+    ['Typing Heatmap', function (x, y, i, t, label) { var f = HEAT[label] != null ? HEAT[label] : .04; return [230 - 230 * f, 90, 28 + 30 * f]; }],
     ['Starry Night', function (x, y, i, t) { var f = Math.pow(Math.max(0, Math.sin(t * 1.6 + rnd(i) * 40)), 12); return [220, 30, 12 + 72 * f]; }],
-    ['Ocean Waves', function (x, y, i, t) { return [186, 90, 26 + 36 * (.5 + .5 * Math.sin(x * 9 - t * 2 + y * 2))]; }],
-    ['Rainbow', function (x, y, i, t) { return [(x * 360 + t * 50) % 360, 90, 60]; }],
-    ['Pastel Rain', function (x, y, i, t) { var c = t * 1.2 + rnd(i), n = Math.floor(c), lit = rnd(i * 5 + n) > .7 ? 1 - (c - n) : 0; return [rnd(i * 11 + n) * 360, 55 + 35 * lit, 90 - 18 * lit]; }],
   ];
 
   var rowsEl = document.getElementById('rows'), strip = document.getElementById('strip');
@@ -289,6 +281,9 @@
     });
     moodsEl.appendChild(b);
   });
+  var more = document.createElement('span');
+  more.className = 'more'; more.textContent = 'and more';
+  moodsEl.appendChild(more);
 
   function apply(el, c, glow) {
     if (!c) { el.style.background = el.style.boxShadow = el.style.color = ''; return; }
