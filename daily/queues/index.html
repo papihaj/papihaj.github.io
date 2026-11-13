@@ -21,12 +21,12 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>queues! | Papiha Joharapurkar</title>
-    <meta name="description" content="I've solved algorithm problems with queues before, but today is the first time I've learned how these are actually implemented in AWS infrastructure.…" />
+    <meta name="description" content="I've solved algorithm problems with queues before, but today is the first time I've learned how these are actually implemented in AWS infrastructure." />
     <link rel="canonical" href="https://joharapurkar.com/daily/queues/" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Papiha Joharapurkar" />
     <meta property="og:title" content="queues! | Papiha Joharapurkar" />
-    <meta property="og:description" content="I've solved algorithm problems with queues before, but today is the first time I've learned how these are actually implemented in AWS infrastructure.…" />
+    <meta property="og:description" content="I've solved algorithm problems with queues before, but today is the first time I've learned how these are actually implemented in AWS infrastructure." />
     <meta property="og:url" content="https://joharapurkar.com/daily/queues/" />
     <meta property="article:published_time" content="2026-11-12" />
     <meta name="twitter:card" content="summary" />
@@ -39,7 +39,7 @@
   </head>
   <body>
     <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>queues!</h2><p><time datetime="2026-11-12">November 12, 2026</time></p><p>I've solved algorithm problems with queues before, but today is the first time I've learned how these are actually implemented in AWS infrastructure. Queues are data structures that embody the FIFO philosophy much like the philosophy of real-life queues: first-in-first-out.</p>
-<p>!<a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXuNK9alj96ChDOAzMZlKxFc0DpkN3BEOxlZAjyWzF7w&amp;s=10">SpongeBob SquarePants - When Worlds Collide|264</a></p>
+<p></p>
 <p>It turns out this data structure is used in AWS SQS (Simple Queue Service). Here, if there are events from Application A that need to go to Application B, instead of it directly connecting, the items from A can be placed in a SQS. Then Application B will process items from the queue. You might be wondering why?</p>
 <p>This type of service is helpful when needing to make sure both applications (especially B) are not over capacity. Application B will only accept items from the queue if it has finished processing it's current events at its own pace. Then it will accept from the queue and this design keeps both applications from being over capacity and no events are lost! Hurrah!</p></article><p><a href="/daily/">All daily logs</a></p></main></div>
   </body>
