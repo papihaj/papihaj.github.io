@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore path encoded by 404.html redirect for GitHub Pages SPA routing.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>neural net training | Papiha Joharapurkar</title>
+    <meta name="description" content="Training a neural network involves 3 steps: 1) Create the neural network (covered in previous note) 2) Determine the loss function/cost function to be…" />
+    <link rel="canonical" href="https://joharapurkar.com/daily/neural-net-training/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Papiha Joharapurkar" />
+    <meta property="og:title" content="neural net training | Papiha Joharapurkar" />
+    <meta property="og:description" content="Training a neural network involves 3 steps: 1) Create the neural network (covered in previous note) 2) Determine the loss function/cost function to be…" />
+    <meta property="og:url" content="https://joharapurkar.com/daily/neural-net-training/" />
+    <meta property="article:published_time" content="2026-10-22" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","@id":"https://joharapurkar.com/#person","name":"Papiha Joharapurkar","url":"https://joharapurkar.com/","jobTitle":"Data Scientist","worksFor":{"@type":"Organization","name":"Sanofi"},"sameAs":["https://github.com/papihaj","https://www.linkedin.com/in/papihaj/","https://www.tiktok.com/@yapswithpaps","https://www.instagram.com/yapswithpaps/","https://x.com/papihaj","https://papihaj.substack.com/"]},{"@context":"https://schema.org","@type":"BlogPosting","headline":"neural net training","datePublished":"2026-10-22","dateModified":"2026-10-22","url":"https://joharapurkar.com/daily/neural-net-training/","mainEntityOfPage":"https://joharapurkar.com/daily/neural-net-training/","author":{"@id":"https://joharapurkar.com/#person"},"publisher":{"@id":"https://joharapurkar.com/#person"}}]</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <script type="module" crossorigin src="/assets/index-CyJvekSk.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsuLzrfs.css">
+  </head>
+  <body>
+    <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>neural net training</h2><p><time datetime="2026-10-22">October 22, 2026</time></p><p>Training a neural network involves 3 steps: 1) Create the neural network (covered in previous note) 2) Determine the loss function/cost function to be used.</p>
+<ul>
+<li>If dealing with a binary classification problem, can use binary cross entropy</li>
+<li>If regression, can use mean squared error</li>
+<p>3) Use gradient descent to update weights to minimize loss/cost function.</p>
+</ul>
+<ul>
+<li>When it comes to activation functions, these are the commonly used functions:</li>
+<li>ReLU</li>
+<li>The function is g(z) = max(0, z)</li>
+<li>Linear Activation Function. </li>
+<li>The function is g(z) = z</li>
+<li>Sigmoid Function</li>
+<li>The function is g(z) = 1/(1+e^(-z)) </li>
+<p>We need activation functions in a neural network different than just linear functions in order to capture non-linear patterns in the data.</p>
+</ul>
+<p>There's a reason the field has progressed towards using ReLU activation functions (especially within the hidden layers). It's because: 1) Compared to sigmoid function which includes exponentials, it is quicker to compute ReLU and this leads to more efficiency during gradient descent. 2) The sigmoid function has two parts of the graph that are flat, so minimizing the loss with gradient descent process is harder than in ReLU which only has a single flat portion in the curve. This causes a vanishing gradient problem because the partial derivative in these regions would be close to 0 in these flat regions which means that weight updates would stall. However, for the output layer (depending on the final answer), the above activation functions may be useful in those cases.</p></article><p><a href="/daily/">All daily logs</a></p></main></div>
+  </body>
+</html>

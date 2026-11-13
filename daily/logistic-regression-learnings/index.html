@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore path encoded by 404.html redirect for GitHub Pages SPA routing.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>logistic regression learnings | Papiha Joharapurkar</title>
+    <meta name="description" content="Hallo gentlest readers. Today was the start of the work week and work projects are going crazy. Lots to do. After work, I did try to allocate time for a…" />
+    <link rel="canonical" href="https://joharapurkar.com/daily/logistic-regression-learnings/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Papiha Joharapurkar" />
+    <meta property="og:title" content="logistic regression learnings | Papiha Joharapurkar" />
+    <meta property="og:description" content="Hallo gentlest readers. Today was the start of the work week and work projects are going crazy. Lots to do. After work, I did try to allocate time for a…" />
+    <meta property="og:url" content="https://joharapurkar.com/daily/logistic-regression-learnings/" />
+    <meta property="article:published_time" content="2026-09-28" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","@id":"https://joharapurkar.com/#person","name":"Papiha Joharapurkar","url":"https://joharapurkar.com/","jobTitle":"Data Scientist","worksFor":{"@type":"Organization","name":"Sanofi"},"sameAs":["https://github.com/papihaj","https://www.linkedin.com/in/papihaj/","https://www.tiktok.com/@yapswithpaps","https://www.instagram.com/yapswithpaps/","https://x.com/papihaj","https://papihaj.substack.com/"]},{"@context":"https://schema.org","@type":"BlogPosting","headline":"logistic regression learnings","datePublished":"2026-09-28","dateModified":"2026-09-28","url":"https://joharapurkar.com/daily/logistic-regression-learnings/","mainEntityOfPage":"https://joharapurkar.com/daily/logistic-regression-learnings/","author":{"@id":"https://joharapurkar.com/#person"},"publisher":{"@id":"https://joharapurkar.com/#person"}}]</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <script type="module" crossorigin src="/assets/index-CyJvekSk.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsuLzrfs.css">
+  </head>
+  <body>
+    <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>logistic regression learnings</h2><p><time datetime="2026-09-28">September 28, 2026</time></p><p>Hallo gentlest readers. Today was the start of the work week and work projects are going crazy. Lots to do. After work, I did try to allocate time for a daily <a href="https://leetcode.com/submissions/detail/2156207093/">LC</a> of the day, an exercise I do to prevent my brain from atrophying. In this problem, I needed to re-position the array elements such that non-zero elements were moved to the beginning and then zero elements afterwards, while keeping the order of the non-zero elements. I was initially stupid and coded up an approach that involved looping over each element, and then swapping elements if they were non-zero with a zero-element. After I got the worst-time complexity score known to man (O(N2) with the repeated swapping), I watched a video and learned that a better way to solve this problem would be to move the non-zero elements to the beginning of the array (keeping track of exactly where with something like a last-seen pointer) and then replacing all elements after that pointer with a zero - this is O(N). Bam! Super elegant.</p>
+<p>Next, also revised logistic regression. I re-learned that the cost function for logistic regression is not the same as for linear regression (the squared cost error) due to the fact that you cannot obtain a convex function with plugging the sigmoid in the cost-function and if used, you would end up with many local minima instead of a global minimum during gradient descent. Instead, this other cost function log loss (binary cross-entropy) can be used.</p>
+<p>Further, to prevent overfitting with regression there are 3 methods:</p>
+<ul>
+<li>Increase number of training examples -&gt; the model will likely find a more generalizable model that does not have high variance</li>
+<li>Work on feature selection -&gt; Can combine or exclude features even with the same amount of training data and see if this improves model</li>
+<li>Regularization -&gt;  Shrink the parameter weights towards 0</li>
+<li>L1 reduces some weights to 0, in effect removing them </li>
+<li>L2 shrinks all weights towards 0, but never 0</li>
+</ul></article><p><a href="/daily/">All daily logs</a></p></main></div>
+  </body>
+</html>

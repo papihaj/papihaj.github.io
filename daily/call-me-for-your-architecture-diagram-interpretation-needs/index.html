@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore path encoded by 404.html redirect for GitHub Pages SPA routing.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>call me for your architecture diagram interpretation needs | Papiha Joharapurkar</title>
+    <meta name="description" content="Lots of more AWS exam preparation today. I am now fully confident and able to read and understand twisty windy architecture diagrams like the following.…" />
+    <link rel="canonical" href="https://joharapurkar.com/daily/call-me-for-your-architecture-diagram-interpretation-needs/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Papiha Joharapurkar" />
+    <meta property="og:title" content="call me for your architecture diagram interpretation needs | Papiha Joharapurkar" />
+    <meta property="og:description" content="Lots of more AWS exam preparation today. I am now fully confident and able to read and understand twisty windy architecture diagrams like the following.…" />
+    <meta property="og:url" content="https://joharapurkar.com/daily/call-me-for-your-architecture-diagram-interpretation-needs/" />
+    <meta property="article:published_time" content="2026-11-04" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","@id":"https://joharapurkar.com/#person","name":"Papiha Joharapurkar","url":"https://joharapurkar.com/","jobTitle":"Data Scientist","worksFor":{"@type":"Organization","name":"Sanofi"},"sameAs":["https://github.com/papihaj","https://www.linkedin.com/in/papihaj/","https://www.tiktok.com/@yapswithpaps","https://www.instagram.com/yapswithpaps/","https://x.com/papihaj","https://papihaj.substack.com/"]},{"@context":"https://schema.org","@type":"BlogPosting","headline":"call me for your architecture diagram interpretation needs","datePublished":"2026-11-04","dateModified":"2026-11-04","url":"https://joharapurkar.com/daily/call-me-for-your-architecture-diagram-interpretation-needs/","mainEntityOfPage":"https://joharapurkar.com/daily/call-me-for-your-architecture-diagram-interpretation-needs/","author":{"@id":"https://joharapurkar.com/#person"},"publisher":{"@id":"https://joharapurkar.com/#person"}}]</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <script type="module" crossorigin src="/assets/index-CyJvekSk.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsuLzrfs.css">
+  </head>
+  <body>
+    <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>call me for your architecture diagram interpretation needs</h2><p><time datetime="2026-11-04">November 4, 2026</time></p><p>Lots of more AWS exam preparation today. I am now fully confident and able to read and understand twisty-windy architecture diagrams like the following. Feel free to contact me to assist your comprehension of complicated architecture diagrams if you're out of tokens :)</p>
+<p>Here's an aggregate summary of many days topics on how your architecture flow would look like if you needed to access a web application (instance) on AWS infra. I will be following the below diagram which is an easier diagram to explain than the one above:</p>
+<ul>
+<li>First, you as the user would need to navigate to the web-address for the application (let us imagine the web address is the ELB which redirects traffic to one of three instances for the web application you are interested in)</li>
+<li>If you have visited the address prior, through DNS caching, then you will be able to visit immediately else you will have to navigate the Route 53 process to find the correct web address</li>
+<li>Then you will navigate to the ELB, which is hosted in public subnet i.e. accessible over public internet </li>
+<li>Following this, the ELB will forward the request to be fulfilled by a instance in a private-subnet </li>
+<li>Let us also imagine the ELB and private subnet and data subnets are all in the VPC (virtual private cloud). The ELB is simply in the public subnet of the VPC.</li>
+<li>This means these subnets in the VPC can route to each other through local routes and security groups can determine if these are allowable connections i.e. instance to ElastiCache is allow</li>
+<li>Then the request from your instance in the private subnet will redirect to the ElastiCache and if request has been cached, will return the request to the instance. Else, it will go to the RDS and read/write data and also cache that request in ElastiCache (if lazy-loading strategy)</li>
+<li>Then the request will go back to your private subnet and then ELB and then back to the end-user</li>
+</ul></article><p><a href="/daily/">All daily logs</a></p></main></div>
+  </body>
+</html>

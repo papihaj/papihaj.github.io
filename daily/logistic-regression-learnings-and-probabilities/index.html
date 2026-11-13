@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore path encoded by 404.html redirect for GitHub Pages SPA routing.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>logistic regression learnings and probabilities | Papiha Joharapurkar</title>
+    <meta name="description" content="Short note for today. Spent some time getting my website updated so I can upload my daily learnings. I set up a folder to store my Markdown notes (I'm…" />
+    <link rel="canonical" href="https://joharapurkar.com/daily/logistic-regression-learnings-and-probabilities/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Papiha Joharapurkar" />
+    <meta property="og:title" content="logistic regression learnings and probabilities | Papiha Joharapurkar" />
+    <meta property="og:description" content="Short note for today. Spent some time getting my website updated so I can upload my daily learnings. I set up a folder to store my Markdown notes (I'm…" />
+    <meta property="og:url" content="https://joharapurkar.com/daily/logistic-regression-learnings-and-probabilities/" />
+    <meta property="article:published_time" content="2026-09-24" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","@id":"https://joharapurkar.com/#person","name":"Papiha Joharapurkar","url":"https://joharapurkar.com/","jobTitle":"Data Scientist","worksFor":{"@type":"Organization","name":"Sanofi"},"sameAs":["https://github.com/papihaj","https://www.linkedin.com/in/papihaj/","https://www.tiktok.com/@yapswithpaps","https://www.instagram.com/yapswithpaps/","https://x.com/papihaj","https://papihaj.substack.com/"]},{"@context":"https://schema.org","@type":"BlogPosting","headline":"logistic regression learnings and probabilities","datePublished":"2026-09-24","dateModified":"2026-09-24","url":"https://joharapurkar.com/daily/logistic-regression-learnings-and-probabilities/","mainEntityOfPage":"https://joharapurkar.com/daily/logistic-regression-learnings-and-probabilities/","author":{"@id":"https://joharapurkar.com/#person"},"publisher":{"@id":"https://joharapurkar.com/#person"}}]</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <script type="module" crossorigin src="/assets/index-CyJvekSk.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsuLzrfs.css">
+  </head>
+  <body>
+    <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>logistic regression learnings and probabilities</h2><p><time datetime="2026-09-24">September 24, 2026</time></p><p>Short note for today. Spent some time getting my website updated so I can upload my daily-learnings. I set up a folder to store my Markdown notes (I'm using Obsidian as my UI) and have the folder synced to Github to make this daily learning writing process as easy as possible. Lots of learnings today: 1) Re-learned that the logistic regression function is basically the linear regression model outputs (weights * x-values plus b-intercept) - after it is transformed by going through the sigmoid function. Since the outputs of the sigmoid function are between 0 and 1, this means the logistic function can have its outputs interpreted as a probability.</p>
+<p>2) Weighted probabilities. I tried a weighted-probability <a href="https://leetcode.com/problems/random-pick-with-weight/">puzzle</a> today which was definitely challenging. I understand the way to solve these problems in general is to take the number of possible outcomes and ascribe probabilities for the range depending on the problem. This problem in particular requires you to compute prefix sums so this means it's probability of it or a number below it is equal to it's prefix sum over sum of all numbers. You then are asked to return an index - and if you randomly generate a number in the range of the prefix-sum total, you can identify which index would be returned. This type of thinking is something I understand now and will further develop. 3) Started using Muse. Hehe I call mine Rocky. <a href="https://images.teepublic.com/derived/production/designs/79318467_0/1756103300/i_p:c_ffffff,s_630,q_90.jpg">![Rocky amaze - “Fist My Bump!” - Project Hail Mary Andy Weir T-Shirt|403</a>](https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;url=https%3A%2F%2Fwww.teepublic.com%2Ft-shirt%2F79318467-rocky-amaze-fist-my-bump-project-hail-mary-andy-we&amp;ved=0CBYQjRxqFwoTCKCfz9iIiZcDFQAAAAAdAAAAABA5&amp;opi=89978449)</p></article><p><a href="/daily/">All daily logs</a></p></main></div>
+  </body>
+</html>

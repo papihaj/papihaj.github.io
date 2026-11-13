@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore path encoded by 404.html redirect for GitHub Pages SPA routing.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>agentic evals are not an afterthought | Papiha Joharapurkar</title>
+    <meta name="description" content="Let's take a break from AWS content for today! (hurrah) Today I will answer some critical questions related to a topic I'm interested in which is AI…" />
+    <link rel="canonical" href="https://joharapurkar.com/daily/agentic-evals-are-not-an-afterthought/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Papiha Joharapurkar" />
+    <meta property="og:title" content="agentic evals are not an afterthought | Papiha Joharapurkar" />
+    <meta property="og:description" content="Let's take a break from AWS content for today! (hurrah) Today I will answer some critical questions related to a topic I'm interested in which is AI…" />
+    <meta property="og:url" content="https://joharapurkar.com/daily/agentic-evals-are-not-an-afterthought/" />
+    <meta property="article:published_time" content="2026-11-06" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","@id":"https://joharapurkar.com/#person","name":"Papiha Joharapurkar","url":"https://joharapurkar.com/","jobTitle":"Data Scientist","worksFor":{"@type":"Organization","name":"Sanofi"},"sameAs":["https://github.com/papihaj","https://www.linkedin.com/in/papihaj/","https://www.tiktok.com/@yapswithpaps","https://www.instagram.com/yapswithpaps/","https://x.com/papihaj","https://papihaj.substack.com/"]},{"@context":"https://schema.org","@type":"BlogPosting","headline":"agentic evals are not an afterthought","datePublished":"2026-11-06","dateModified":"2026-11-06","url":"https://joharapurkar.com/daily/agentic-evals-are-not-an-afterthought/","mainEntityOfPage":"https://joharapurkar.com/daily/agentic-evals-are-not-an-afterthought/","author":{"@id":"https://joharapurkar.com/#person"},"publisher":{"@id":"https://joharapurkar.com/#person"}}]</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <script type="module" crossorigin src="/assets/index-CyJvekSk.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsuLzrfs.css">
+  </head>
+  <body>
+    <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>agentic evals are not an afterthought</h2><p><time datetime="2026-11-06">November 6, 2026</time></p><p>Let's take a break from AWS content for today! (hurrah) Today I will answer some critical questions related to a topic I'm interested in which is AI evaluations i.e. ensuring agentic/LLM-generated outputs are reliable and dependable enough within the healthcare landscape.</p>
+<p>In a recent DS meeting I was co-leading, someone asked about why agentic evaluations are important as we have great models nowadays. Every new model hits new benchmarks and these great models are now great at producing excellent SQL and not straying from the plan, etc. Why are evaluations still important then?</p>
+<p>It's a good question and to answer this, we have to separate the model from the system the model is deployed within. Although model scores are improving, this doesn't translate directly to 100% reliable production and system behaviour at all times. The benchmarks for top of the line models do not capture systemic metrics such as tool failure, API failures, context-changes or changes in user variability. Only system level evaluations can surface these. Even changing something as simple as a prompt could have regressions but these won't be caught unless evaluations are implemented (for example, running evaluations as a pre-merge check).</p>
+<p>To capture these metrics, we must collect traces (i.e. step records, tool calls, outputs of a run) to evaluate such workflows. Only then can we measure metrics such as costs, latencies, tool success, task success. It's imperative to continue doing this even after launch. We also need to monitor for drift continuously so we can be proactive with changes to our products and systems and catch regressions early. These metrics can also be tied directly to business outcomes:</p>
+<ul>
+<li>collecting token costs means you can have better intuition about system scalability</li>
+<li>task completion metrics can help you understand operational reliability (especially critical in health)</li>
+<li>latency can help with understanding user experiences</li>
+<p>Overall, evaluations matter greatly and must be a key counterpart to building agentic systems, not an afterthought.</p>
+</ul></article><p><a href="/daily/">All daily logs</a></p></main></div>
+  </body>
+</html>

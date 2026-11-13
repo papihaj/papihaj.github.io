@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore path encoded by 404.html redirect for GitHub Pages SPA routing.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>multiclass neural networks | Papiha Joharapurkar</title>
+    <meta name="description" content="Update: Have really enjoyed brushing up on my AI/ML fundamentals and through my daily note learning series, reviewing notes and fundamentals that I had…" />
+    <link rel="canonical" href="https://joharapurkar.com/daily/multiclass-neural-networks/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Papiha Joharapurkar" />
+    <meta property="og:title" content="multiclass neural networks | Papiha Joharapurkar" />
+    <meta property="og:description" content="Update: Have really enjoyed brushing up on my AI/ML fundamentals and through my daily note learning series, reviewing notes and fundamentals that I had…" />
+    <meta property="og:url" content="https://joharapurkar.com/daily/multiclass-neural-networks/" />
+    <meta property="article:published_time" content="2026-10-26" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","@id":"https://joharapurkar.com/#person","name":"Papiha Joharapurkar","url":"https://joharapurkar.com/","jobTitle":"Data Scientist","worksFor":{"@type":"Organization","name":"Sanofi"},"sameAs":["https://github.com/papihaj","https://www.linkedin.com/in/papihaj/","https://www.tiktok.com/@yapswithpaps","https://www.instagram.com/yapswithpaps/","https://x.com/papihaj","https://papihaj.substack.com/"]},{"@context":"https://schema.org","@type":"BlogPosting","headline":"multiclass neural networks","datePublished":"2026-10-26","dateModified":"2026-10-26","url":"https://joharapurkar.com/daily/multiclass-neural-networks/","mainEntityOfPage":"https://joharapurkar.com/daily/multiclass-neural-networks/","author":{"@id":"https://joharapurkar.com/#person"},"publisher":{"@id":"https://joharapurkar.com/#person"}}]</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <script type="module" crossorigin src="/assets/index-CyJvekSk.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsuLzrfs.css">
+  </head>
+  <body>
+    <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>multiclass neural networks</h2><p><time datetime="2026-10-26">October 26, 2026</time></p><p>Update: Have really enjoyed brushing up on my AI/ML fundamentals and through my daily-note learning series, reviewing notes and fundamentals that I had known like the back of my hand at one point in time.</p>
+<ul>
+<li>As discussed in previous notes, the activation functions used can vary especially for hidden and output layers</li>
+<li>why are activation functions needed?</li>
+<li>if only linear activation functions used in all units, no different than a linear regression model - linear function of a linear function is just linear</li>
+<li>for multiclass classification, can use softmax function</li>
+<li>the function involves computing each output, exponentiating the outputs and then divide each by the sum of all exponentiated outputs of other neurons (itself included)</li>
+</ul>
+<ul>
+<li>There is a unique feature about this activation function compared to other activation functions, which is that each output requires <strong>all element</strong>-wise exponentiated outputs to be computed before computing the final proportion to generate final activations</li>
+<li>With application in Tensorflow, need to apply numerical stability (linear activation function and then loss with SparseCategoricalCrossEntropy, from_logits). Then need to apply <code>tf.nn.softmax</code> to convert back to probabilities.</li>
+</ul>
+<ul>
+<li>In general, Adam (Adaptive Moment estimation) Algorithm can adjust the learning rate/alpha so in gradient descent, you can reach minimum faster</li>
+<li>each weight, bias will get it own learning rate</li>
+<li>if parameters are moving in same direction, increase learning rate</li>
+<li>but if parameters are oscillating, decrease learning rate </li>
+</ul>
+<p>What are convolution layers?</p>
+<ul>
+<li>Each unit will only receive a region/limited window of previous layer's activations, not all</li>
+<li>reasons?</li>
+<li>faster computation </li>
+<li>less training data/less prone to overfitting</li>
+<li>CNN = when a neural network has many convolutional layers</li>
+</ul></article><p><a href="/daily/">All daily logs</a></p></main></div>
+  </body>
+</html>

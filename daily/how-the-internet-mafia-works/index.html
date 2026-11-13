@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore path encoded by 404.html redirect for GitHub Pages SPA routing.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>how the internet mafia works | Papiha Joharapurkar</title>
+    <meta name="description" content="I have been making a ton of progress for my AWS certification exam that is coming up soon and today I covered 2 sections. One about relational…" />
+    <link rel="canonical" href="https://joharapurkar.com/daily/how-the-internet-mafia-works/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Papiha Joharapurkar" />
+    <meta property="og:title" content="how the internet mafia works | Papiha Joharapurkar" />
+    <meta property="og:description" content="I have been making a ton of progress for my AWS certification exam that is coming up soon and today I covered 2 sections. One about relational…" />
+    <meta property="og:url" content="https://joharapurkar.com/daily/how-the-internet-mafia-works/" />
+    <meta property="article:published_time" content="2026-11-03" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","@id":"https://joharapurkar.com/#person","name":"Papiha Joharapurkar","url":"https://joharapurkar.com/","jobTitle":"Data Scientist","worksFor":{"@type":"Organization","name":"Sanofi"},"sameAs":["https://github.com/papihaj","https://www.linkedin.com/in/papihaj/","https://www.tiktok.com/@yapswithpaps","https://www.instagram.com/yapswithpaps/","https://x.com/papihaj","https://papihaj.substack.com/"]},{"@context":"https://schema.org","@type":"BlogPosting","headline":"how the internet mafia works","datePublished":"2026-11-03","dateModified":"2026-11-03","url":"https://joharapurkar.com/daily/how-the-internet-mafia-works/","mainEntityOfPage":"https://joharapurkar.com/daily/how-the-internet-mafia-works/","author":{"@id":"https://joharapurkar.com/#person"},"publisher":{"@id":"https://joharapurkar.com/#person"}}]</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <script type="module" crossorigin src="/assets/index-CyJvekSk.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsuLzrfs.css">
+  </head>
+  <body>
+    <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>how the internet mafia works</h2><p><time datetime="2026-11-03">November 3, 2026</time></p><p>I have been making a ton of progress for my AWS certification exam that is coming up soon and today I covered 2 sections. One about relational databases/caching and the other about the internet web-address mafia, but more officially known as Route 53.</p>
+<p>1) Caching. For AWS to cache RDS, there are two main strategies:</p>
+<ul>
+<li>Lazy loading which is where you can search cache and then on a cache-miss, read from the database and then cache this request so the next time, requests can be read quicker from the cache.</li>
+<li>Write-through which is immediately after writing where you cache a request. </li>
+<li>You can incorporate TTL (time to live) rules so that cache-eviction process occurs to keep the cache small. When TTL expires, items are removed and in case the cache is full, the least recently used (LRU) cache items are removed first. But removing cache and knowing the timing of the TTL is always a guess/fuzzy rule.</li>
+<li>*There are only 2 things hard in computer science: cache invalidation and naming things* ~ Phil Karlton</li>
+</ul>
+<p>2) Next, DNS basics. To understand this, we have to first ask ourselves, how does your internet browser know what address to direct to when given a website, joharapurkar.com for instance? Well, your browser has to first check your stub-resolver whether the website has been accessed. If so, then it looks up the address from its cache. But if this is the first time, then it goes to the Local DNS Server, run through your internet provider who does the following look ups:</p>
+<ul>
+<li>It starts at the root DNS server that is organized by multiple organizations (coordinated by ICANN). It doesn't know individual websites, so it will then direct the local DNS server to search for just the .com (TLD) part. </li>
+</ul>
+<p>Then the local DNS server will then ask the TLD DNS server which will return with the address of the SLD DNS server, a name-server (for example Amazon Route 53) that holds records for the SLD (joharapurkar.com). The local DNS server will then route to that server which will return back the actual IP address. This will then be stored in the DNS server's cache and then pass this to the browser which connects to joharapurkar.com using this address.</p>
+<p>I think it's so interesting that there's this 'I know a guy' kind-of-chain that you have to keep following until you get your answer. It's actually surprising that the whole internet works this way and it happens in the background whenever you go to a new web-address. Kudos to the internet mafia.</p></article><p><a href="/daily/">All daily logs</a></p></main></div>
+  </body>
+</html>
