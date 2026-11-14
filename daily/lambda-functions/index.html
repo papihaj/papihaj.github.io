@@ -34,12 +34,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
-    <script type="module" crossorigin src="/assets/index-Cuc47p_w.js"></script>
+    <script type="module" crossorigin src="/assets/index-B4zLCaog.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CsuLzrfs.css">
   </head>
   <body>
     <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>lambda functions</h2><p><time datetime="2026-11-13">November 13, 2026</time></p><p>Covered Lambda functions today. It's a pretty major topic for the AWS exam.</p>
-<p>The main feature about Lambda functions is that it's serverless, which means you do not have to manage a server. You, as a client can trigger the function to get some information back which is the synchronous approach. You as the caller have to wait for the Lambda to return back information. The alternative is the asynchronous approach where the caller will invoke the Lambda but not need the output back i.e. if there's an event that causes the Lambda to be triggered, the output from the Lambda could go somewhere else i.e. destinations. For Lambda to access other applications i.e. S3 file or SNS or something else, it needs the execution role. Event source mappings may be needed for polling. But for other applications to call Lambda, they need to be added to the Resource based policy for Lambda.</p>
+<p>The main feature about Lambda functions is that it's serverless, which means you do not have to manage a server. You, as a client can trigger the function to get some information back which is the synchronous approach. You then have to wait for the Lambda to return back information. The alternative is the asynchronous approach where the caller will invoke the Lambda but not need the output back i.e. if there's an event that causes the Lambda to be triggered, the output from the Lambda could go somewhere else i.e. destinations.</p>
+<p>For Lambda to access other applications i.e. S3 file or SNS or something else, it needs the execution role. Event source mappings may be needed for polling. But for other applications to call Lambda, they need to be added to the Resource based policy for Lambda.</p>
 <p>There's some limits that have to be known for the exam:</p>
 <ul>
 <li>there's a 10G maximum for memory allocation</li>
@@ -48,6 +49,6 @@
 <li>disk capacity in the temporary folder is up to 10 GB</li>
 <li>concurrent executions are 1000 (but these can be increased)</li>
 </ul>
-<p>Eagerly looking forward to the day where I do not have to recite  temporary storage number limits for Lambda functions, recite concurrency limits at the top of my head or have to know the specific fields covered by a CloudFormation document. Did you know AWS has services such as CloudFront, CloudFormation, CloudWatch and CloudTrail. Their naming is on par with OpenAI's earlier model naming strategy 😆</p></article><p><a href="/daily/">All daily logs</a></p></main></div>
+<p>Eagerly looking forward to the day where I do not have to recite temporary storage size limits for Lambda functions or have to know concurrency limits at the top of my head or memorize the fields in a CloudFormation doc. Did you know AWS has services such as CloudFront, CloudFormation, CloudWatch and CloudTrail? Their naming is on par with OpenAI's earlier model naming strategy 😆</p></article><p><a href="/daily/">All daily logs</a></p></main></div>
   </body>
 </html>
