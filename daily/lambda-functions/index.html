@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore path encoded by 404.html redirect for GitHub Pages SPA routing.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lambda functions | Papiha Joharapurkar</title>
+    <meta name="description" content="Covered Lambda functions today. It's a pretty major topic for the AWS exam. The main feature about Lambda functions is that it's serverless, which means…" />
+    <link rel="canonical" href="https://joharapurkar.com/daily/lambda-functions/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Papiha Joharapurkar" />
+    <meta property="og:title" content="lambda functions | Papiha Joharapurkar" />
+    <meta property="og:description" content="Covered Lambda functions today. It's a pretty major topic for the AWS exam. The main feature about Lambda functions is that it's serverless, which means…" />
+    <meta property="og:url" content="https://joharapurkar.com/daily/lambda-functions/" />
+    <meta property="article:published_time" content="2026-11-13" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","@id":"https://joharapurkar.com/#person","name":"Papiha Joharapurkar","url":"https://joharapurkar.com/","jobTitle":"Data Scientist","worksFor":{"@type":"Organization","name":"Sanofi"},"sameAs":["https://github.com/papihaj","https://www.linkedin.com/in/papihaj/","https://www.tiktok.com/@yapswithpaps","https://www.instagram.com/yapswithpaps/","https://x.com/papihaj","https://papihaj.substack.com/"]},{"@context":"https://schema.org","@type":"BlogPosting","headline":"lambda functions","datePublished":"2026-11-13","dateModified":"2026-11-13","url":"https://joharapurkar.com/daily/lambda-functions/","mainEntityOfPage":"https://joharapurkar.com/daily/lambda-functions/","author":{"@id":"https://joharapurkar.com/#person"},"publisher":{"@id":"https://joharapurkar.com/#person"}}]</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <script type="module" crossorigin src="/assets/index-Cuc47p_w.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsuLzrfs.css">
+  </head>
+  <body>
+    <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>lambda functions</h2><p><time datetime="2026-11-13">November 13, 2026</time></p><p>Covered Lambda functions today. It's a pretty major topic for the AWS exam.</p>
+<p>The main feature about Lambda functions is that it's serverless, which means you do not have to manage a server. You, as a client can trigger the function to get some information back which is the synchronous approach. You as the caller have to wait for the Lambda to return back information. The alternative is the asynchronous approach where the caller will invoke the Lambda but not need the output back i.e. if there's an event that causes the Lambda to be triggered, the output from the Lambda could go somewhere else i.e. destinations. For Lambda to access other applications i.e. S3 file or SNS or something else, it needs the execution role. Event source mappings may be needed for polling. But for other applications to call Lambda, they need to be added to the Resource based policy for Lambda.</p>
+<p>There's some limits that have to be known for the exam:</p>
+<ul>
+<li>there's a 10G maximum for memory allocation</li>
+<li>there's a 15 minute maximum execution time </li>
+<li>environmental variables possible are only allowable upto 4 KB</li>
+<li>disk capacity in the temporary folder is up to 10 GB</li>
+<li>concurrent executions are 1000 (but these can be increased)</li>
+</ul>
+<p>Eagerly looking forward to the day where I do not have to recite  temporary storage number limits for Lambda functions, recite concurrency limits at the top of my head or have to know the specific fields covered by a CloudFormation document. Did you know AWS has services such as CloudFront, CloudFormation, CloudWatch and CloudTrail. Their naming is on par with OpenAI's earlier model naming strategy 😆</p></article><p><a href="/daily/">All daily logs</a></p></main></div>
+  </body>
+</html>
