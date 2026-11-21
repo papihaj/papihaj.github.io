@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore path encoded by 404.html redirect for GitHub Pages SPA routing.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ec2 | Papiha Joharapurkar</title>
+    <meta name="description" content="Saw this on my X a week or so ago (the algo must know I'm studying for the exam ig) I can't summarize EC2 better than that but in case you are needing…" />
+    <link rel="canonical" href="https://joharapurkar.com/daily/ec2/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Papiha Joharapurkar" />
+    <meta property="og:title" content="ec2 | Papiha Joharapurkar" />
+    <meta property="og:description" content="Saw this on my X a week or so ago (the algo must know I'm studying for the exam ig) I can't summarize EC2 better than that but in case you are needing…" />
+    <meta property="og:url" content="https://joharapurkar.com/daily/ec2/" />
+    <meta property="article:published_time" content="2026-11-20" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","@id":"https://joharapurkar.com/#person","name":"Papiha Joharapurkar","url":"https://joharapurkar.com/","jobTitle":"Data Scientist","worksFor":{"@type":"Organization","name":"Sanofi"},"sameAs":["https://github.com/papihaj","https://www.linkedin.com/in/papihaj/","https://www.tiktok.com/@yapswithpaps","https://www.instagram.com/yapswithpaps/","https://x.com/papihaj","https://papihaj.substack.com/"]},{"@context":"https://schema.org","@type":"BlogPosting","headline":"ec2","datePublished":"2026-11-20","dateModified":"2026-11-20","url":"https://joharapurkar.com/daily/ec2/","mainEntityOfPage":"https://joharapurkar.com/daily/ec2/","author":{"@id":"https://joharapurkar.com/#person"},"publisher":{"@id":"https://joharapurkar.com/#person"}}]</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <script type="module" crossorigin src="/assets/index-6zoJz0cM.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsuLzrfs.css">
+  </head>
+  <body>
+    <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>ec2</h2><p><time datetime="2026-11-20">November 20, 2026</time></p><p>Saw this on my X a week or so ago (the algo must know I'm studying for the exam ig)</p>
+<p>I can't summarize EC2 better than that but in case you are needing additional details, here they are:</p>
+<p>The EC2 instance is a virtual server that runs in the AWS Cloud. You can add a user-data script so that commands you need i.e. installing updates or software can be run as soon as you start an instance, can only do this at the beginning of starting an instance.</p>
+<p>There's an ungodly amount of options: 1) on demand instances - short-term, and cannot be interrupted 2) reserved comes in 1, 3 year plans options 1) standard reserved instance - where you can reserve for workloads. cannot change EC2 instance family but bigger discount. 2) convertible reserved where you can reserve for workloads but those that might change types so this one lets you change EC2 instance type 3) savings plan also comes in 1, 3 year plans options and here, you commit to a $ amount 4) spot instances - cheap but can be interrupted i.e. 90% off but 2 minute warning in case your instance is turned off. 5) dedicated hosts - you can have an entire server to yourself, hurrah! 6) dedicated instance - you get an instance but cannot control the server location. 7) capacity reservation - you get on-demand capacity but you are billed regardless if you use or not. tied to a single availability zone.</p></article><p><a href="/daily/">All daily logs</a></p></main></div>
+  </body>
+</html>
