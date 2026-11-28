@@ -1,5 +1,5 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/NoteMarkdown-Der71dhk.js","assets/index-BiI_soq-.js","assets/index-CsuLzrfs.css"])))=>i.map(i=>d[i]);
-import{r as p,j as e,L as I,a as q,u as C,P as N,_ as F}from"./index-BiI_soq-.js";const B=`---
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/NoteMarkdown-BaA4kryz.js","assets/index-BHJVDSUF.js","assets/index-CsuLzrfs.css"])))=>i.map(i=>d[i]);
+import{r as p,j as e,L as I,a as q,u as C,P as L,_ as F}from"./index-BHJVDSUF.js";const M=`---
 date: 2026-11-02
 tags:
   - aws-exam
@@ -38,7 +38,7 @@ When I look at these posters, it's usually a mix of a few things:
 - More is more 
 
 I think less clutter and direction for specific art styles could have the biggest gains for the average person using these tools. Wishing everyone a happy Diwali and all of you a year ahead full of prosperity and good health and all good things! 
-`,M=`---
+`,B=`---
 date: 2026-11-01
 tags:
   - python
@@ -81,6 +81,42 @@ Therefore, the tier of the AWS storage solution you pick will be dependent on ho
 
 
 `,R=`---
+date: 2026-11-27
+tags:
+  - agents
+---
+Hello readers! As someone who's been working with agents for almost a year now, I wanted to do a couple logs dedicated to how I understand agents and how I build them. In my day job, I am working to create agents to automate and make real world data workflows faster. 
+
+I personally like to think of agents as a big while loop. While some condition, the agent will keep working and then after the condition is fulfilled, it will stop. 
+\`\`\`
+while condition:
+	agent goes brrrrr
+return final_output
+\`\`\`
+
+Agents are composed of 3 parts:
+1. system - the design, architecture
+2. data - the context, training examples
+3. evaluations - this is important as bad evaluations can make a bad model look great. 
+
+In this log, I will cover the agent system which has these pieces: planning and reasoning, memory, tools, actions, the environment and the LLM of course. I've done a [brief dive into evaluations](https://joharapurkar.com/daily/agentic-evals-are-not-an-afterthought) but will go into that in a future log, and data I can cover afterwards as well. 
+
+The agent refers to a LLM that has planning and reasoning capabilities, memories, and tools that they will use in combination to guide their actions. They will observe the environment and will act in the environment. Going back to the while loop, this means the agent can take actions and after some result from the environment is returned, the agentic loop can stop.
+
+Planning and reasoning capabilities can help agents break down problems. There's different types of reasoning (e.g. Chain of Thought or ReACT) but in general, reasoning helps us understand why agents might take certain actions. We can use their reasoning traces to debug and adjust prompts. For instance, an agent acts in a certain way - if we look at their reasoning traces, we can deep dive on why and adjust the prompting or some other parameter. 
+
+Tools refers to external capabilities available to the model. For instance, a tool could include an isolated module such as disease-code-retrieval. We could instruct the agent that it has access to such a tool and we can provide a tool registry to the agent so that it can call this specific tool if the codes are needed by the agent to execute a task. 
+
+Memory I have covered in a [prior log as well](https://joharapurkar.com/daily/memory-with-agents-in-smallville), and this refers to past experiences that can be used as specific knowledge for agents to further act on. Often, the context stream cannot retain all event data especially if agents are long-horizon working agents, so memory is important in these cases to ensure past insights can be compacted for agents to draw from afterwards for context. Not every agent needs memory - the alternative could be that data is being saved in external stores instead. In the project that I work in, rather than saving memories, we save states and checkpoints for the ID of the run so that future subagents or the agent continuing to work can retrieve that ID - I suppose in a way, this is closer to persistence rather than memory. 
+
+The environment is what the agent works in and executes actions and uses the outputs to feed back into itself. For instance, if an agent needed to run a SQL query, it could have access to a Snowflake environment and warehouse to run the query and after running, it's outputs would be returned back to the agent. 
+
+The LLM is the main brain - the reasoning agent and the degree to which it has control can impact the whole agent's flexibility. If it is the one deciding which steps to take next, which sub-agents to call, it will be a more agentic driven example. This is where the LLM is processing the memories, the plans and decide the tools to call and observe the outputs and deciding what to do next. Alternatively, if there is code deciding the next steps or actions, this is more of a workflow system rather than agentic. This dial of more agentic or more code-driven can be upto the designers of the agent system. 
+
+![[Pasted image 20261127185946.png|489]]
+
+
+`,H=`---
 date: 2026-11-06
 tags:
   - evals
@@ -98,7 +134,7 @@ To capture these metrics, we must collect traces (i.e. step records, tool calls,
 Overall, evaluations matter greatly and must be a key counterpart to building agentic systems, not an afterthought. 
 
 
-`,H=`---
+`,Y=`---
 date: 2026-11-11
 tags:
   - thoughts
@@ -113,7 +149,7 @@ I heard in a podcast that after the camera was invented, it was used initially f
 
 With every era of a new technology being introduced, there will be time needed for it to diffuse into the economy. With AI just being introduced, there's still years and years of exploration of AI being applied. In this world of AI, where everything is new and all of us learning to figure out how to work - then it remains that the biggest challenge would be our imaginations and figuring out how AI can be made helpful in every part of the world. 
 
-In my work, I think about how even though we have agents today that we have created to mimic or replicate how humans work (similar to how early film captured theatre-style) maybe in the next phase, that will change. Maybe we'll identify new ways for agents to work that are more well-suited for agents and less for humans. There's still so much innovation to be had I think. `,Y=`---
+In my work, I think about how even though we have agents today that we have created to mimic or replicate how humans work (similar to how early film captured theatre-style) maybe in the next phase, that will change. Maybe we'll identify new ways for agents to work that are more well-suited for agents and less for humans. There's still so much innovation to be had I think. `,$=`---
 date: 2026-09-25
 tags:
   - algorithms
@@ -126,7 +162,7 @@ I solved a variation of this [problem](https://python-forum.io/thread-32120.html
 def what_program_should_do(word:str) -> str | None:
 \`\`\`
 
-`,$=`---
+`,U=`---
 date: 2026-11-04
 tags:
   - aws-exam
@@ -146,14 +182,14 @@ Here's an aggregate summary of many days topics on how your architecture flow wo
 - Then the request will go back to your private subnet and then ELB and then back to the end-user 
 ![[Pasted image 20261104105551.png|441]]
 
-`,U=`---
+`,G=`---
 date: 2026-10-03
 tags:
   - bayesian
 ---
 I picked up a Bayesian Statistics textbook. It's common in everyday life to collect data to support our existing beliefs. Rather, the Bayesian approach starts with a prior belief, then assessing the data, and then most importantly, updating those beliefs based on how well your hypothesis explains the data. Evaluating competing hypotheses can help you update beliefs based on those hypotheses with greater probabilities. 
 A bit untechnical for a daily-learning but hey ho, it be that way sometimes. 
-`,G=`---
+`,X=`---
 date: 2026-11-07
 tags:
   - systems-design
@@ -171,7 +207,7 @@ The first chapter focuses on Reliable, Scalable and Maintainable Applications an
 - Maintainability: As different people work on the system, they should be able to work productively regardless if it's maintenance of current work or adapting to new use cases 
 
 That's all for today! Happy Diwali! 
-`,X=`---
+`,Q=`---
 date: 2026-11-25
 tags:
   - aws-exam
@@ -215,7 +251,7 @@ Overall, it's great to understand these topics at a high-level and although the 
 
 ![[Pasted image 20261125095434.png|252]]
 (notes while studying for exam!)
-`,Q=`---
+`,K=`---
 date: 2026-10-31
 tags:
   - tools
@@ -244,7 +280,7 @@ Here are some foundational terms:
 	- Shares the kernel of it's host so if it ever needs a separate kernel/host, then the host has to change. 
 - Orchestration (i.e. ECS/Kubernetes/Docker Swarm) can be useful for scheduling, removing failed containers, spreading work, scaling processes. 
 
-`,K=`---
+`,V=`---
 date: 2026-11-20
 tags:
   - aws-exam
@@ -265,7 +301,7 @@ There's an ungodly amount of options:
 5) dedicated hosts - you can have an entire server to yourself, hurrah! 
 6) dedicated instance - you get an instance but cannot control the server location. 
 7) capacity reservation - you get on-demand capacity but you are billed regardless if you use or not. tied to a single availability zone. 
-`,V=`---
+`,Z=`---
 date: 2026-11-09
 tags:
   - aws-exam
@@ -277,7 +313,7 @@ ECS runs on a cluster which means that ECS decides where the tasks will go i.e. 
 - Fargate: serverless
 
 
-`,Z=`---
+`,J=`---
 date: 2026-11-14
 tags:
   - aws-exam
@@ -297,7 +333,7 @@ For 5XX, we have:
 - 500 = internal service error
 - 502 = bad gateway which means backend sent wrong response 
 - 503 = service unavailable
-- 504 = timeout i.e. in API gateway, you will timeout after 29 seconds`,J=`---
+- 504 = timeout i.e. in API gateway, you will timeout after 29 seconds`,ee=`---
 date: 2026-09-23
 tags:
   - machine-learning
@@ -308,7 +344,7 @@ A helpful resource while reviewing my fundamentals is this course Deep Learning 
 
 And late last night I finally was able to do it! My notebook has some pretty scrappy manual learning-rate logging but happy to have done it all with my brain. Next, I will be reviewing the lectures for logistic regression! On and forwards!  
 
-![[Pasted image 20260924191300.png|492]]`,ee=`---
+![[Pasted image 20260924191300.png|492]]`,te=`---
 date: 2026-11-03
 tags:
   - aws-exam
@@ -330,7 +366,7 @@ Well, your browser has to first check your stub-resolver whether the website has
 
 Then the local DNS server will then ask the TLD DNS server which will return with the address of the SLD DNS server, a name-server (for example Amazon Route 53) that holds records for the SLD (joharapurkar.com). The local DNS server will then route to that server which will return back the actual IP address. This will then be stored in the DNS server's cache and then pass this to the browser which connects to joharapurkar.com using this address.
 
-I think it's so interesting that there's this 'I know a guy' kind-of-chain that you have to keep following until you get your answer. It's actually surprising that the whole internet works this way and it happens in the background whenever you go to a new web-address. Kudos to the internet mafia. `,te=`---
+I think it's so interesting that there's this 'I know a guy' kind-of-chain that you have to keep following until you get your answer. It's actually surprising that the whole internet works this way and it happens in the background whenever you go to a new web-address. Kudos to the internet mafia. `,ae=`---
 date: 2026-11-15
 tags:
   - aws-exam
@@ -348,7 +384,7 @@ We would check based on the ID of the transaction, and this is called an idempot
 If the first attempt did not go through, then it will not be logged in the table and then we can ensure that the first attempt was unsuccessful and why the second one will be allowed to process. If a retry with this ID appeared in the table, then it would mean that the first attempt was successful and the second attempt will simply just return the successful response from the first attempt. No matter the amount of retries, the same result should be shown. 
 
 In day to day life, this concept is similar to pressing an elevator button. If you press once or ten times, it will still bring you to your requested floor at the same time. 
-`,ae=`---
+`,ne=`---
 date: 2026-11-13
 tags:
   - aws-exam
@@ -367,7 +403,7 @@ There's some limits that have to be known for the exam:
 - concurrent executions are 1000 (but these can be increased)
 
 Eagerly looking forward to the day where I do not have to recite temporary storage size limits for Lambda functions or have to know concurrency limits at the top of my head or memorize the fields in a CloudFormation doc. Did you know AWS has services such as CloudFront, CloudFormation, CloudWatch and CloudTrail? Their naming is on par with OpenAI's earlier model naming strategy 😆
-`,ne=`---
+`,oe=`---
 date: 2026-10-10
 tags:
   - machine-learning
@@ -389,7 +425,7 @@ According to the [matmul documentation with numpy](), if the first argument is 1
 This means depending on the order, the numpy shape of the weights will change and it could be shaped as a row or as a column. So what we can do is do the dot product of X @ weights which means this is interpreted like (m,2) @ (2,1). This will work! The output shape is (m,) with one prediction per student, and b can be added to each.
 If it was the other way around with (1,2) @ (m,2) here the inner dimensions do not match, and numpy will throw an error. 
 
-`,oe=`---
+`,ie=`---
 tags:
   - probability
   - machine-learning
@@ -402,7 +438,7 @@ Lots of learnings today:
 
 2) Weighted probabilities. I tried a weighted-probability [puzzle](https://leetcode.com/problems/random-pick-with-weight/) today which was definitely challenging. I understand the way to solve these problems in general is to take the number of possible outcomes and ascribe probabilities for the range depending on the problem. This problem in particular requires you to compute prefix sums so this means it's probability of it or a number below it is equal to it's prefix sum over sum of all numbers. You then are asked to return an index - and if you randomly generate a number in the range of the prefix-sum total, you can identify which index would be returned. This type of thinking is something I understand now and will further develop. 
 3) Started using Muse. Hehe I call mine Rocky. 
-[![Rocky amaze - “Fist My Bump!” - Project Hail Mary Andy Weir T-Shirt|403](https://images.teepublic.com/derived/production/designs/79318467_0/1756103300/i_p:c_ffffff,s_630,q_90.jpg)](https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fwww.teepublic.com%2Ft-shirt%2F79318467-rocky-amaze-fist-my-bump-project-hail-mary-andy-we&ved=0CBYQjRxqFwoTCKCfz9iIiZcDFQAAAAAdAAAAABA5&opi=89978449)`,ie=`---
+[![Rocky amaze - “Fist My Bump!” - Project Hail Mary Andy Weir T-Shirt|403](https://images.teepublic.com/derived/production/designs/79318467_0/1756103300/i_p:c_ffffff,s_630,q_90.jpg)](https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fwww.teepublic.com%2Ft-shirt%2F79318467-rocky-amaze-fist-my-bump-project-hail-mary-andy-we&ved=0CBYQjRxqFwoTCKCfz9iIiZcDFQAAAAAdAAAAABA5&opi=89978449)`,se=`---
 date: 2026-09-28
 tags:
   - algorithms
@@ -419,7 +455,7 @@ Further, to prevent overfitting with regression there are 3 methods:
 - Regularization ->  Shrink the parameter weights towards 0
 	- L1 reduces some weights to 0, in effect removing them 
 	- L2 shrinks all weights towards 0, but never 0
-`,se=`---
+`,re=`---
 date: 2026-10-07
 tags:
   - machine-learning
@@ -434,7 +470,7 @@ If you needed to interpret this model such as through the following example, you
 In order to retrieve the best logistic regression function, the method of Maximum Likelihood Estimation is used which gives us the cost function for logistic regression. The cost function from linear regression cannot be used as the squared-difference between prediction through sigmoid and the actual target label would result in a non-convex curve. This means gradient descent may not be able to find the global minimum and could land in a local minimum instead.![[Pasted image 20261007205955.png]]
 To find the best line, we use the process of gradient descent: you compute the derivative of the cost to update the weights and b-value by taking a step (through learning rate) in the opposite direction of the derivative. This means you get values that are closer to the minimum cost/error. We repeat this process until the costs/error plateaus. These are the formulas here. ![[Pasted image 20261007210256.png]]
 
-`,re=`---
+`,le=`---
 date: 2026-11-26
 tags:
   - agents
@@ -461,7 +497,7 @@ Based on many memories, reflections can be created. These are higher-level and g
 
 Memory was something that was most interesting to me. When it comes to agents such as OpenClaw from earlier this year, or rather any agent - we see instances of the agent performing actions that don't align with user visions e.g. deleting all emails even though the user may have requested to not have emails deleted unless the agent had confirmed with the user. The fact that the agent may have continued to do so means there's could have been a failure in the memory module because from the agent perspective, the importance of this specific user instruction was not given high importance. Such errors are helpful for debugging as following this mistake, the memory module can be reprogrammed to enable better importance scoring algorithms. 
 
-But of course, memory is only one piece. I'll be exploring future pieces of the puzzle in future logs. Sidenote: I think it's so interesting how researchers are abstracting human processes and behaviours to replicate in AI agents. `,le=`---
+But of course, memory is only one piece. I'll be exploring future pieces of the puzzle in future logs. Sidenote: I think it's so interesting how researchers are abstracting human processes and behaviours to replicate in AI agents. `,he=`---
 date: 2026-10-26
 tags:
   - neural-networks
@@ -491,7 +527,7 @@ What are convolution layers?
 	- faster computation 
 	- less training data/less prone to overfitting
 - CNN = when a neural network has many convolutional layers
-`,he=`---
+`,ce=`---
 date: 2026-10-22
 tags:
   - neural-networks
@@ -517,7 +553,7 @@ There's a reason the field has progressed towards using ReLU activation function
 It's because:
 1) Compared to sigmoid function which includes exponentials, it is quicker to compute ReLU and this leads to more efficiency during gradient descent.
 2) The sigmoid function has two parts of the graph that are flat, so minimizing the loss with gradient descent process is harder than in ReLU which only has a single flat portion in the curve. This causes a vanishing gradient problem because the partial derivative in these regions would be close to 0 in these flat regions which means that weight updates would stall.
-However, for the output layer (depending on the final answer), the above activation functions may be useful in those cases.`,ce=`---
+However, for the output layer (depending on the final answer), the above activation functions may be useful in those cases.`,de=`---
 date: 2026-10-11
 tags:
   - machine-learning
@@ -534,7 +570,7 @@ This is a visual of a neural network:
 - Why do we have activation functions? This is to [capture nonlinearities](https://developers.google.com/machine-learning/crash-course/neural-networks/activation-functions) between features and the label in the target problem you are modelling. Adding more layers will not help unless you have non-linear activation functions as the neural network would only be learning to model linear patterns. The ReLU activation function for instance is not linear and it returns anything < 0 as 0 and if anything greater than or equal to 0, the original input value. It's commonly used within hidden layer neurons.
 ![[Pasted image 20261011214837.png|245]]
 
-- With multi-class classification, the total amount of neurons that will be composing the output layer will correspond to the number of classes. For example, if 10 classes, there will be 10 neurons within the final output layer (and if using Softmax activation function), these outputs are the probabilities for each class summing to 1. `,de=`---
+- With multi-class classification, the total amount of neurons that will be composing the output layer will correspond to the number of classes. For example, if 10 classes, there will be 10 neurons within the final output layer (and if using Softmax activation function), these outputs are the probabilities for each class summing to 1. `,ue=`---
 date: 2026-10-21
 tags:
   - machine-learning
@@ -548,7 +584,7 @@ Above, I’m creating a model with 3 layers of 25, 15, and 1 unit/neuron. Each n
 
 The model is made with Sequential. Compile then decides how it learns. You have the loss function (binary cross-entropy) and the optimizer (Adam, with a learning rate of 0.001)
 
-What’s interesting is that the actual learning, i.e. backpropagation, happens behind the scenes in Fit. Here it fits to X and y for 20 epochs, where one epoch is a full pass through the data.`,ue=`---
+What’s interesting is that the actual learning, i.e. backpropagation, happens behind the scenes in Fit. Here it fits to X and y for 20 epochs, where one epoch is a full pass through the data.`,me=`---
 date: 2026-11-17
 tags:
   - aws-exam
@@ -559,7 +595,7 @@ Using a combination of public and private keys is an asymmetric method of encryp
 
 Public keys can be shared and private keys are secret. The way that it works if your website is connected to a database for retrieving user account information - is that before database is stored, it's encrypted with the public key. Then in the server, that's where the private key lives (in config/env). When a user needs data, the server uses the private key to decrypt and then send it back to the browser. 
 
-`,me=`---
+`,ge=`---
 date: 2026-11-12
 tags:
   - aws-exam
@@ -571,7 +607,7 @@ I've solved algorithm problems with queues before, but today is the first time I
 It turns out this data structure is used in AWS SQS (Simple Queue Service). Here, if there are events from Application A that need to go to Application B, instead of it directly connecting, the items from A can be placed in a SQS. Then Application B will process items from the queue. You might be wondering why?
 
 This type of service is helpful when needing to make sure both applications (especially B) are not over capacity. Application B will only accept items from the queue if it has finished processing it's current events at its own pace. Then it will accept from the queue and this design keeps both applications from being over capacity and no events are lost! Hurrah! 
-`,ge=`---
+`,pe=`---
 date: 2026-11-10
 tags:
   - aws-exam
@@ -582,7 +618,7 @@ There's a template you have to follow but there are all of these commands that w
 There's !GetAtt which means getting attributes from resources. 
 It's a lot ngl and less intuitive than other sections of this course. 
 
-![[Pasted image 20261110224712.png|378]]`,pe=`---
+![[Pasted image 20261110224712.png|378]]`,ye=`---
 date: 2026-09-27
 tags:
   - tools
@@ -595,4 +631,4 @@ Now I understand the reason Docker is useful is because it combines
 1) image - which contains the code, runtimes, tools/instructions, library, configs etc. to run it 
 2) containers - running instance of the image 
 
-With one image, many containers can be made so the same code can be run in identical ways on any machine. Next steps will involve implementing for personal projects. `,ye="/assets/C115D99F-F0E1-4F7F-A4D9-D96EAB3A9B7E_1_201_a-BncNMoxS.webp",we="/assets/Pasted%20image%2020260924191300-DEUuIQbG.webp",fe="/assets/Pasted%20image%2020260925014557-MRPlskpx.webp",be="/assets/Pasted%20image%2020260927232447-Cn_rue6I.webp",ve="/assets/Pasted%20image%2020261007205245-BVMDblL7.webp",_e="/assets/Pasted%20image%2020261007205532-Dyq6xOKM.webp",ke="/assets/Pasted%20image%2020261007205955-tozaL1Ic.webp",Ie="/assets/Pasted%20image%2020261007210256-CEIgetVY.webp",xe="/assets/Pasted%20image%2020261010221214-RBCnUAcG.webp",Se="/assets/Pasted%20image%2020261010221801--S4qmuCl.webp",Ae="/assets/Pasted%20image%2020261010222627-BqqGPLlw.webp",Te="/assets/Pasted%20image%2020261011213349-Bc5rDfvW.webp",Pe="/assets/Pasted%20image%2020261011214837-CYAyvsUU.webp",De="/assets/Pasted%20image%2020261021211749-DPr_aP8T.webp",je="/assets/Pasted%20image%2020261026202606-fujYf4u1.webp",Ce="/assets/Pasted%20image%2020261026203927-Cs3xN9Ig.webp",Ne="/assets/Pasted%20image%2020261031221025-4X2sO6Fw.webp",Le="/assets/Pasted%20image%2020261103200303-U4a-RjgN.webp",We="/assets/Pasted%20image%2020261104105551-9WZ-6hn6.webp",Ee="/assets/Pasted%20image%2020261104112037-C5tIhP14.webp",qe="/assets/Pasted%20image%2020261105101914-p1v5JKg6.webp",Fe="/assets/Pasted%20image%2020261105212516-2l8nH3-S.webp",Be="/assets/Pasted%20image%2020261107222406-D86Nh-E3.webp",ze="/assets/Pasted%20image%2020261108222635-DPjUR6KU.webp",Me="/assets/Pasted%20image%2020261110224712-CEXCAIbs.webp",Oe="/assets/Pasted%20image%2020261111205545-BBYBZ1R-.webp",Re="/assets/Pasted%20image%2020261114200743-BUjB-Apc.webp",He="/assets/Pasted%20image%2020261125094007-OhQyQfBF.webp",Ye="/assets/Pasted%20image%2020261125095434-D8BwK6z_.webp",$e="/assets/Pasted%20image%2020261126223200-BmopxMj1.webp",Ue="/assets/Pasted%20image%2020261126223645-CKMs3QtV.webp",Ge="2026-11-20",Xe="2026-11-15",Qe={"AWS exam prep":"2026-11-02","Happy Diwali!":"2026-11-08","LEGB scoping rules":"2026-11-01","S3 Storage":"2026-11-05","agentic evals are not an afterthought":"2026-11-05","ai spending and diffusion":"2026-11-11","algorithm challenges":"2026-09-25","call me for your architecture diagram interpretation needs":"2026-11-04","data informs beliefs, beliefs do not inform data":"2026-10-03","data systems":"2026-11-07","developer exam takeaways":"2026-11-25","docker concepts":"2026-10-31",ec2:Ge,"elastic container service summary":"2026-11-09","error codes":"2026-11-14","first entry! linear regression from scratch":"2026-09-24","how the internet mafia works":"2026-11-03",idempotency:Xe,"lambda functions":"2026-11-13","logistic regression from scratch":"2026-10-10","logistic regression learnings and probabilities":"2026-09-25","logistic regression learnings":"2026-09-28","logistic regression revision":"2026-10-07","memory with agents in Smallville":"2026-11-26","multiclass neural networks":"2026-10-23","neural net training":"2026-10-22","neural nets review":"2026-10-10","neural nets with Tensorflow":"2026-10-19","public and private keys":"2026-11-17","queues!":"2026-11-12","so many commands":"2026-11-10","what does Docker do?":"2026-09-27"},Ke=Object.assign({"../content/daily/AWS exam prep.md":B,"../content/daily/Happy Diwali!.md":z,"../content/daily/LEGB scoping rules.md":M,"../content/daily/S3 Storage.md":O,"../content/daily/agentic evals are not an afterthought.md":R,"../content/daily/ai spending and diffusion.md":H,"../content/daily/algorithm challenges.md":Y,"../content/daily/call me for your architecture diagram interpretation needs.md":$,"../content/daily/data informs beliefs, beliefs do not inform data.md":U,"../content/daily/data systems.md":G,"../content/daily/developer exam takeaways.md":X,"../content/daily/docker concepts.md":Q,"../content/daily/ec2.md":K,"../content/daily/elastic container service summary.md":V,"../content/daily/error codes.md":Z,"../content/daily/first entry! linear regression from scratch.md":J,"../content/daily/how the internet mafia works.md":ee,"../content/daily/idempotency.md":te,"../content/daily/lambda functions.md":ae,"../content/daily/logistic regression from scratch.md":ne,"../content/daily/logistic regression learnings and probabilities.md":oe,"../content/daily/logistic regression learnings.md":ie,"../content/daily/logistic regression revision.md":se,"../content/daily/memory with agents in Smallville.md":re,"../content/daily/multiclass neural networks.md":le,"../content/daily/neural net training.md":he,"../content/daily/neural nets review.md":ce,"../content/daily/neural nets with Tensorflow.md":de,"../content/daily/public and private keys.md":ue,"../content/daily/queues!.md":me,"../content/daily/so many commands.md":ge,"../content/daily/what does Docker do__QMARK__.md":pe}),Ve=Object.assign({"../content/daily/media/C115D99F-F0E1-4F7F-A4D9-D96EAB3A9B7E_1_201_a.webp":ye,"../content/daily/media/Pasted image 20260924191300.webp":we,"../content/daily/media/Pasted image 20260925014557.webp":fe,"../content/daily/media/Pasted image 20260927232447.webp":be,"../content/daily/media/Pasted image 20261007205245.webp":ve,"../content/daily/media/Pasted image 20261007205532.webp":_e,"../content/daily/media/Pasted image 20261007205955.webp":ke,"../content/daily/media/Pasted image 20261007210256.webp":Ie,"../content/daily/media/Pasted image 20261010221214.webp":xe,"../content/daily/media/Pasted image 20261010221801.webp":Se,"../content/daily/media/Pasted image 20261010222627.webp":Ae,"../content/daily/media/Pasted image 20261011213349.webp":Te,"../content/daily/media/Pasted image 20261011214837.webp":Pe,"../content/daily/media/Pasted image 20261021211749.webp":De,"../content/daily/media/Pasted image 20261026202606.webp":je,"../content/daily/media/Pasted image 20261026203927.webp":Ce,"../content/daily/media/Pasted image 20261031221025.webp":Ne,"../content/daily/media/Pasted image 20261103200303.webp":Le,"../content/daily/media/Pasted image 20261104105551.webp":We,"../content/daily/media/Pasted image 20261104112037.webp":Ee,"../content/daily/media/Pasted image 20261105101914.webp":qe,"../content/daily/media/Pasted image 20261105212516.webp":Fe,"../content/daily/media/Pasted image 20261107222406.webp":Be,"../content/daily/media/Pasted image 20261108222635.webp":ze,"../content/daily/media/Pasted image 20261110224712.webp":Me,"../content/daily/media/Pasted image 20261111205545.webp":Oe,"../content/daily/media/Pasted image 20261114200743.webp":Re,"../content/daily/media/Pasted image 20261125094007.webp":He,"../content/daily/media/Pasted image 20261125095434.webp":Ye,"../content/daily/media/Pasted image 20261126223200.webp":$e,"../content/daily/media/Pasted image 20261126223645.webp":Ue}),Ze=Object.values([Qe])[0]||{},j=Object.fromEntries(Object.entries(Ve).map(([t,n])=>[t.split("/").pop(),n])),T=t=>t.trim().replace(/^["']|["']$/g,"");function Je(t){const n=t.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);if(!n)return{data:{},body:t};const o={};let s=null;for(const r of n[1].split(/\r?\n/)){const c=r.match(/^\s+-\s*(.*)$/);if(c&&s){Array.isArray(o[s])||(o[s]=[]),o[s].push(T(c[1]));continue}const h=r.match(/^([\w-]+):\s*(.*)$/);if(!h)continue;s=h[1];const u=h[2].trim();o[s]=u.startsWith("[")&&u.endsWith("]")?u.slice(1,-1).split(",").map(T).filter(Boolean):T(u)}return{data:o,body:t.slice(n[0].length)}}function et(t,n,o){const s=n.split("/").pop(),r=j[s]||j[s.replace(/\.[^.]+$/,".webp")];return r?`![${s}](<${r}>${o?` "${o}"`:""})`:""}function tt(t){return t.replace(/%%[\s\S]*?%%/g,"").replace(/!\[\[([^\]|#]+\.(?:png|jpe?g|gif|webp|svg))(?:\|(\d+)(?:x\d+)?)?\]\]/gi,et).replace(/!\[\[[^\]]*\]\]/g,"").replace(/\[\[([^\]|#]+)(?:#[^\]|]*)?\|([^\]]+)\]\]/g,"$2").replace(/\[\[([^\]|#]+)(?:#[^\]]*)?\]\]/g,"$1").replace(/^## Notes\s*$/m,"").trim()}const at=/^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1[ \t]*$|`[^`\n]+`/gm,nt=/\uE000(\d+)\uE000/g;function ot(t,n){const o=[],s=t.replace(at,c=>`${o.push(c)-1}`);return n(s,c=>c.replace(nt,(h,u)=>o[u]))}const it=/^\d{4}-\d{2}-\d{2}$/;function st(t,n){const o=t.match(/\d{4}-\d{2}-\d{2}/),s=o?o[0]:n.date||n.created||Ze[t]||"",r=new Date(`${String(s).slice(0,10)}T12:00:00`);return isNaN(r)?null:r}const rt=t=>t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")||"note",w=Object.entries(Ke).map(([t,n])=>{const o=t.split("/").pop().replace(/\.md$/,"").replace(/__QMARK__/g,"?").replace(/__HASH__/g,"#"),s=rt(o),{data:r,body:c}=Je(n);let h=r.title;const u=ot(c,(m,f)=>{let i=tt(m);const y=i.match(/^# (.+)$/m);return!h&&y&&(h=f(y[1].trim()),i=i.replace(y[0],"").trim()),f(i)});!h&&!it.test(o)&&(h=o);const g=st(o,r),b=(Array.isArray(r.tags)?r.tags:r.tags?[r.tags]:[]).map(m=>m.replace(/^#/,"")).filter(m=>m&&m!=="daily"),v=u.split(/\s+/).filter(Boolean).length;return{slug:s,title:h||(g?g.toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"}).toLowerCase():s),date:g,tags:b,content:u,minutes:Math.max(1,Math.round(v/200))}}).filter(t=>t.content).sort((t,n)=>(n.date||0)-(t.date||0)),lt=1440*60*1e3,ht=["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"],x=t=>{const n=new Date(t);return n.setHours(12,0,0,0),n},P=(t,n)=>x(new Date(t.getTime()+n*lt)),k=t=>`${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,"0")}-${String(t.getDate()).padStart(2,"0")}`,ct=t=>t.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).toLowerCase();function dt(t){const n=x(new Date(t,0,1)),o=x(new Date(t,11,31)),s=P(n,-n.getDay()),r=[],c=[];for(let h=0,u=s;u<=o;h+=1,u=P(u,7)){const g=Array.from({length:7},(v,m)=>P(u,m));r.push(g);const b=g.find(v=>v.getDate()===1&&v.getFullYear()===t);b&&c.push({week:h,label:ht[b.getMonth()]})}return{weeks:r,monthLabels:c}}const ut=({notes:t})=>{const n=t.filter(i=>i.date),o=x(new Date),s=p.useMemo(()=>new Map(n.map(i=>[k(i.date),i])),[t]),r=n.length?x(new Date(Math.min(...n.map(i=>i.date)))):o,c=[];for(let i=o.getFullYear();i>=r.getFullYear();i-=1)c.push(i);const[h,u]=p.useState(c[0]),{weeks:g,monthLabels:b}=p.useMemo(()=>dt(h),[h]),[v,m]=p.useState(null),f=p.useRef(null);return p.useEffect(()=>{f.current&&(f.current.scrollLeft=h===o.getFullYear()?f.current.scrollWidth:0)},[h]),n.length===0?null:e.jsxs("section",{className:"cal","aria-label":"Writing calendar",children:[c.length>1&&e.jsx("div",{className:"cal-years",role:"group","aria-label":"Year",children:c.map(i=>e.jsx("button",{type:"button","aria-pressed":i===h,onClick:()=>u(i),children:i},i))}),e.jsxs("div",{className:"cal-card",children:[e.jsx("div",{className:"cal-scroll",ref:f,children:e.jsxs("div",{className:"cal-grid",style:{gridTemplateColumns:`repeat(${g.length}, var(--cal-box))`},children:[b.map(i=>e.jsx("span",{className:"cal-month",style:{gridColumn:i.week+1,gridRow:1},children:i.label},i.label)),g.flatMap((i,y)=>i.map(a=>{if(a.getFullYear()!==h)return null;const d=k(a),l=s.get(d),_={gridColumn:y+1,gridRow:a.getDay()+2},D={className:"cal-day","data-future":a>o,"data-today":d===k(o),style:_};if(!l)return e.jsx("span",{...D},d);const S=`${ct(a)} · ${l.title}`;return e.jsx(I,{to:`/daily/${l.slug}`,...D,"data-filled":!0,"aria-label":S,title:S,onMouseEnter:()=>m(S),onMouseLeave:()=>m(null),onFocus:()=>m(S),onBlur:()=>m(null)},d)})),r.getFullYear()===h&&e.jsx("span",{className:"cal-started",style:{gridColumn:g.findIndex(i=>i.some(y=>k(y)===k(r)))+1,gridRow:9},children:"↑ started"})]})}),e.jsx("p",{className:"cal-hover","aria-live":"polite",children:v||" "})]})]})},mt=p.lazy(()=>F(()=>import("./NoteMarkdown-Der71dhk.js"),__vite__mapDeps([0,1,2]))),L=t=>t?t.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).toLowerCase():"",A=t=>t?t.toLocaleDateString("en-US",{month:"long",year:"numeric"}).toLowerCase():"undated";function W({tags:t}){return t.length===0?null:e.jsx("span",{className:"daily-tags",children:t.map(n=>e.jsxs("span",{children:["#",n]},n))})}function E({note:t}){return e.jsx("div",{className:"daily-body",children:e.jsx(p.Suspense,{fallback:e.jsx("p",{className:"daily-loading",children:"loading…"}),children:e.jsx(mt,{content:t.content})})})}function gt({slug:t}){const n=w.findIndex(c=>c.slug===t),o=w[n];C(o?o.title:"Daily logs");const s=w[n-1],r=w[n+1];return e.jsxs("main",{children:[e.jsx(N,{subtitle:"Daily logs about what I'm learning"}),e.jsx("p",{children:e.jsx(I,{to:"/daily",children:"← all notes"})}),o?e.jsxs("article",{children:[e.jsxs("p",{className:"daily-date",children:[L(o.date)," · ",o.minutes," min"]}),e.jsx("h1",{className:"daily-single-title",children:o.title}),e.jsx(W,{tags:o.tags}),e.jsx(E,{note:o}),e.jsxs("nav",{className:"daily-pager","aria-label":"More notes",children:[r?e.jsxs(I,{to:`/daily/${r.slug}`,children:["← ",r.title]}):e.jsx("span",{}),s&&e.jsxs(I,{to:`/daily/${s.slug}`,children:[s.title," →"]})]})]}):e.jsx("p",{children:"This note isn't published."})]})}const yt=()=>{const{slug:t}=q();C(t?null:"Daily logs");const[n,o]=p.useState("all"),[s,r]=p.useState(!1),[c,h]=p.useState(()=>new Set),u=a=>h(d=>{const l=new Set(d);return l.has(a)?l.delete(a):l.add(a),l}),[g,b]=p.useState(()=>new Set([A(new Date)])),v=a=>b(d=>{const l=new Set(d);return l.has(a)?l.delete(a):l.add(a),l}),m=a=>{o(a),b(a==="all"?new Set([A(new Date)]):new Set(w.filter(d=>d.tags.includes(a)).map(d=>A(d.date))))};if(t)return e.jsx(gt,{slug:t});const f=["all",...new Set(w.flatMap(a=>a.tags))],i=w.filter(a=>n==="all"||a.tags.includes(n)),y=[];return i.forEach(a=>{const d=A(a.date),l=y.find(_=>_.label===d);l?l.notes.push(a):y.push({label:d,notes:[a]})}),e.jsxs("main",{children:[e.jsx(N,{subtitle:"Daily logs about what I'm learning"}),w.length===0?e.jsx("p",{className:"daily-empty",children:"No notes yet. Check back soon."}):e.jsxs(e.Fragment,{children:[e.jsx("p",{className:"daily-intro",children:"I try to write a few days a week. Some days I revisit fundamentals. Other days I dig into what I'm learning for work or topics I'm exploring for myself."}),e.jsx(ut,{notes:w}),f.length>1&&e.jsxs("div",{className:"daily-filters-wrap",children:[e.jsx("div",{id:"daily-filters",className:"daily-filters","data-expanded":s,role:"group","aria-label":"Filter by tag",children:f.map(a=>e.jsxs("button",{type:"button","aria-pressed":n===a,onClick:()=>m(a),children:["#",a," ",e.jsx("span",{className:"daily-count",children:a==="all"?w.length:w.filter(d=>d.tags.includes(a)).length})]},a))}),e.jsx("button",{type:"button",className:"daily-filters-more","aria-expanded":s,"aria-controls":"daily-filters",onClick:()=>r(a=>!a),children:s?"show fewer tags ▴":"show all tags ▾"})]}),y.map(a=>{const d=g.has(a.label);return e.jsxs("section",{children:[e.jsx("h2",{className:"daily-month",children:e.jsxs("button",{type:"button",className:"daily-month-toggle","aria-expanded":d,onClick:()=>v(a.label),children:[e.jsx("span",{className:"daily-month-caret","aria-hidden":"true",children:"▾"}),a.label,e.jsx("span",{className:"daily-month-count",children:a.notes.length})]})}),d&&e.jsx("ul",{className:"daily-entries",children:a.notes.map(l=>{const _=c.has(l.slug);return e.jsxs("li",{className:"daily-entry","data-open":_,children:[e.jsxs("div",{className:"daily-row",children:[e.jsxs("button",{type:"button",className:"daily-toggle","aria-expanded":_,onClick:()=>u(l.slug),children:[e.jsx("span",{className:"daily-date",children:L(l.date)}),e.jsxs("span",{className:"daily-heading",children:[e.jsx("span",{className:"daily-title",children:l.title}),e.jsx(W,{tags:l.tags})]}),e.jsxs("span",{className:"daily-meta",children:[l.minutes," min"]})]}),e.jsx(I,{to:`/daily/${l.slug}`,className:"daily-open","aria-label":`Open ${l.title} on its own page`,children:"open ↗"})]}),_&&e.jsx(E,{note:l})]},l.slug)})})]},a.label)})]})]})};export{yt as default};
+With one image, many containers can be made so the same code can be run in identical ways on any machine. Next steps will involve implementing for personal projects. `,we="/assets/C115D99F-F0E1-4F7F-A4D9-D96EAB3A9B7E_1_201_a-BncNMoxS.webp",fe="/assets/Pasted%20image%2020260924191300-DEUuIQbG.webp",be="/assets/Pasted%20image%2020260925014557-MRPlskpx.webp",ve="/assets/Pasted%20image%2020260927232447-Cn_rue6I.webp",_e="/assets/Pasted%20image%2020261007205245-BVMDblL7.webp",ke="/assets/Pasted%20image%2020261007205532-Dyq6xOKM.webp",Ie="/assets/Pasted%20image%2020261007205955-tozaL1Ic.webp",xe="/assets/Pasted%20image%2020261007210256-CEIgetVY.webp",Se="/assets/Pasted%20image%2020261010221214-RBCnUAcG.webp",Ae="/assets/Pasted%20image%2020261010221801--S4qmuCl.webp",Te="/assets/Pasted%20image%2020261010222627-BqqGPLlw.webp",Pe="/assets/Pasted%20image%2020261011213349-Bc5rDfvW.webp",De="/assets/Pasted%20image%2020261011214837-CYAyvsUU.webp",je="/assets/Pasted%20image%2020261021211749-DPr_aP8T.webp",Ce="/assets/Pasted%20image%2020261026202606-fujYf4u1.webp",Le="/assets/Pasted%20image%2020261026203927-Cs3xN9Ig.webp",Ne="/assets/Pasted%20image%2020261031221025-4X2sO6Fw.webp",We="/assets/Pasted%20image%2020261103200303-U4a-RjgN.webp",Ee="/assets/Pasted%20image%2020261104105551-9WZ-6hn6.webp",qe="/assets/Pasted%20image%2020261104112037-C5tIhP14.webp",Fe="/assets/Pasted%20image%2020261105101914-p1v5JKg6.webp",Me="/assets/Pasted%20image%2020261105212516-2l8nH3-S.webp",ze="/assets/Pasted%20image%2020261107222406-D86Nh-E3.webp",Be="/assets/Pasted%20image%2020261108222635-DPjUR6KU.webp",Oe="/assets/Pasted%20image%2020261110224712-CEXCAIbs.webp",Re="/assets/Pasted%20image%2020261111205545-BBYBZ1R-.webp",He="/assets/Pasted%20image%2020261114200743-BUjB-Apc.webp",Ye="/assets/Pasted%20image%2020261125094007-OhQyQfBF.webp",$e="/assets/Pasted%20image%2020261125095434-D8BwK6z_.webp",Ue="/assets/Pasted%20image%2020261126223200-BmopxMj1.webp",Ge="/assets/Pasted%20image%2020261126223645-CKMs3QtV.webp",Xe="/assets/Pasted%20image%2020261127185946-CstG-SlE.webp",Qe="2026-11-20",Ke="2026-11-15",Ve={"AWS exam prep":"2026-11-02","Happy Diwali!":"2026-11-08","LEGB scoping rules":"2026-11-01","S3 Storage":"2026-11-05","agent systems":"2026-11-27","agentic evals are not an afterthought":"2026-11-05","ai spending and diffusion":"2026-11-11","algorithm challenges":"2026-09-25","call me for your architecture diagram interpretation needs":"2026-11-04","data informs beliefs, beliefs do not inform data":"2026-10-03","data systems":"2026-11-07","developer exam takeaways":"2026-11-25","docker concepts":"2026-10-31",ec2:Qe,"elastic container service summary":"2026-11-09","error codes":"2026-11-14","first entry! linear regression from scratch":"2026-09-24","how the internet mafia works":"2026-11-03",idempotency:Ke,"lambda functions":"2026-11-13","logistic regression from scratch":"2026-10-10","logistic regression learnings and probabilities":"2026-09-25","logistic regression learnings":"2026-09-28","logistic regression revision":"2026-10-07","memory with agents in Smallville":"2026-11-26","multiclass neural networks":"2026-10-23","neural net training":"2026-10-22","neural nets review":"2026-10-10","neural nets with Tensorflow":"2026-10-19","public and private keys":"2026-11-17","queues!":"2026-11-12","so many commands":"2026-11-10","what does Docker do?":"2026-09-27"},Ze=Object.assign({"../content/daily/AWS exam prep.md":M,"../content/daily/Happy Diwali!.md":z,"../content/daily/LEGB scoping rules.md":B,"../content/daily/S3 Storage.md":O,"../content/daily/agent systems.md":R,"../content/daily/agentic evals are not an afterthought.md":H,"../content/daily/ai spending and diffusion.md":Y,"../content/daily/algorithm challenges.md":$,"../content/daily/call me for your architecture diagram interpretation needs.md":U,"../content/daily/data informs beliefs, beliefs do not inform data.md":G,"../content/daily/data systems.md":X,"../content/daily/developer exam takeaways.md":Q,"../content/daily/docker concepts.md":K,"../content/daily/ec2.md":V,"../content/daily/elastic container service summary.md":Z,"../content/daily/error codes.md":J,"../content/daily/first entry! linear regression from scratch.md":ee,"../content/daily/how the internet mafia works.md":te,"../content/daily/idempotency.md":ae,"../content/daily/lambda functions.md":ne,"../content/daily/logistic regression from scratch.md":oe,"../content/daily/logistic regression learnings and probabilities.md":ie,"../content/daily/logistic regression learnings.md":se,"../content/daily/logistic regression revision.md":re,"../content/daily/memory with agents in Smallville.md":le,"../content/daily/multiclass neural networks.md":he,"../content/daily/neural net training.md":ce,"../content/daily/neural nets review.md":de,"../content/daily/neural nets with Tensorflow.md":ue,"../content/daily/public and private keys.md":me,"../content/daily/queues!.md":ge,"../content/daily/so many commands.md":pe,"../content/daily/what does Docker do__QMARK__.md":ye}),Je=Object.assign({"../content/daily/media/C115D99F-F0E1-4F7F-A4D9-D96EAB3A9B7E_1_201_a.webp":we,"../content/daily/media/Pasted image 20260924191300.webp":fe,"../content/daily/media/Pasted image 20260925014557.webp":be,"../content/daily/media/Pasted image 20260927232447.webp":ve,"../content/daily/media/Pasted image 20261007205245.webp":_e,"../content/daily/media/Pasted image 20261007205532.webp":ke,"../content/daily/media/Pasted image 20261007205955.webp":Ie,"../content/daily/media/Pasted image 20261007210256.webp":xe,"../content/daily/media/Pasted image 20261010221214.webp":Se,"../content/daily/media/Pasted image 20261010221801.webp":Ae,"../content/daily/media/Pasted image 20261010222627.webp":Te,"../content/daily/media/Pasted image 20261011213349.webp":Pe,"../content/daily/media/Pasted image 20261011214837.webp":De,"../content/daily/media/Pasted image 20261021211749.webp":je,"../content/daily/media/Pasted image 20261026202606.webp":Ce,"../content/daily/media/Pasted image 20261026203927.webp":Le,"../content/daily/media/Pasted image 20261031221025.webp":Ne,"../content/daily/media/Pasted image 20261103200303.webp":We,"../content/daily/media/Pasted image 20261104105551.webp":Ee,"../content/daily/media/Pasted image 20261104112037.webp":qe,"../content/daily/media/Pasted image 20261105101914.webp":Fe,"../content/daily/media/Pasted image 20261105212516.webp":Me,"../content/daily/media/Pasted image 20261107222406.webp":ze,"../content/daily/media/Pasted image 20261108222635.webp":Be,"../content/daily/media/Pasted image 20261110224712.webp":Oe,"../content/daily/media/Pasted image 20261111205545.webp":Re,"../content/daily/media/Pasted image 20261114200743.webp":He,"../content/daily/media/Pasted image 20261125094007.webp":Ye,"../content/daily/media/Pasted image 20261125095434.webp":$e,"../content/daily/media/Pasted image 20261126223200.webp":Ue,"../content/daily/media/Pasted image 20261126223645.webp":Ge,"../content/daily/media/Pasted image 20261127185946.webp":Xe}),et=Object.values([Ve])[0]||{},j=Object.fromEntries(Object.entries(Je).map(([t,n])=>[t.split("/").pop(),n])),T=t=>t.trim().replace(/^["']|["']$/g,"");function tt(t){const n=t.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);if(!n)return{data:{},body:t};const o={};let s=null;for(const r of n[1].split(/\r?\n/)){const c=r.match(/^\s+-\s*(.*)$/);if(c&&s){Array.isArray(o[s])||(o[s]=[]),o[s].push(T(c[1]));continue}const h=r.match(/^([\w-]+):\s*(.*)$/);if(!h)continue;s=h[1];const u=h[2].trim();o[s]=u.startsWith("[")&&u.endsWith("]")?u.slice(1,-1).split(",").map(T).filter(Boolean):T(u)}return{data:o,body:t.slice(n[0].length)}}function at(t,n,o){const s=n.split("/").pop(),r=j[s]||j[s.replace(/\.[^.]+$/,".webp")];return r?`![${s}](<${r}>${o?` "${o}"`:""})`:""}function nt(t){return t.replace(/%%[\s\S]*?%%/g,"").replace(/!\[\[([^\]|#]+\.(?:png|jpe?g|gif|webp|svg))(?:\|(\d+)(?:x\d+)?)?\]\]/gi,at).replace(/!\[\[[^\]]*\]\]/g,"").replace(/\[\[([^\]|#]+)(?:#[^\]|]*)?\|([^\]]+)\]\]/g,"$2").replace(/\[\[([^\]|#]+)(?:#[^\]]*)?\]\]/g,"$1").replace(/^## Notes\s*$/m,"").trim()}const ot=/^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1[ \t]*$|`[^`\n]+`/gm,it=/\uE000(\d+)\uE000/g;function st(t,n){const o=[],s=t.replace(ot,c=>`${o.push(c)-1}`);return n(s,c=>c.replace(it,(h,u)=>o[u]))}const rt=/^\d{4}-\d{2}-\d{2}$/;function lt(t,n){const o=t.match(/\d{4}-\d{2}-\d{2}/),s=o?o[0]:n.date||n.created||et[t]||"",r=new Date(`${String(s).slice(0,10)}T12:00:00`);return isNaN(r)?null:r}const ht=t=>t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")||"note",w=Object.entries(Ze).map(([t,n])=>{const o=t.split("/").pop().replace(/\.md$/,"").replace(/__QMARK__/g,"?").replace(/__HASH__/g,"#"),s=ht(o),{data:r,body:c}=tt(n);let h=r.title;const u=st(c,(m,f)=>{let i=nt(m);const y=i.match(/^# (.+)$/m);return!h&&y&&(h=f(y[1].trim()),i=i.replace(y[0],"").trim()),f(i)});!h&&!rt.test(o)&&(h=o);const g=lt(o,r),b=(Array.isArray(r.tags)?r.tags:r.tags?[r.tags]:[]).map(m=>m.replace(/^#/,"")).filter(m=>m&&m!=="daily"),v=u.split(/\s+/).filter(Boolean).length;return{slug:s,title:h||(g?g.toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"}).toLowerCase():s),date:g,tags:b,content:u,minutes:Math.max(1,Math.round(v/200))}}).filter(t=>t.content).sort((t,n)=>(n.date||0)-(t.date||0)),ct=1440*60*1e3,dt=["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"],x=t=>{const n=new Date(t);return n.setHours(12,0,0,0),n},P=(t,n)=>x(new Date(t.getTime()+n*ct)),k=t=>`${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,"0")}-${String(t.getDate()).padStart(2,"0")}`,ut=t=>t.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).toLowerCase();function mt(t){const n=x(new Date(t,0,1)),o=x(new Date(t,11,31)),s=P(n,-n.getDay()),r=[],c=[];for(let h=0,u=s;u<=o;h+=1,u=P(u,7)){const g=Array.from({length:7},(v,m)=>P(u,m));r.push(g);const b=g.find(v=>v.getDate()===1&&v.getFullYear()===t);b&&c.push({week:h,label:dt[b.getMonth()]})}return{weeks:r,monthLabels:c}}const gt=({notes:t})=>{const n=t.filter(i=>i.date),o=x(new Date),s=p.useMemo(()=>new Map(n.map(i=>[k(i.date),i])),[t]),r=n.length?x(new Date(Math.min(...n.map(i=>i.date)))):o,c=[];for(let i=o.getFullYear();i>=r.getFullYear();i-=1)c.push(i);const[h,u]=p.useState(c[0]),{weeks:g,monthLabels:b}=p.useMemo(()=>mt(h),[h]),[v,m]=p.useState(null),f=p.useRef(null);return p.useEffect(()=>{f.current&&(f.current.scrollLeft=h===o.getFullYear()?f.current.scrollWidth:0)},[h]),n.length===0?null:e.jsxs("section",{className:"cal","aria-label":"Writing calendar",children:[c.length>1&&e.jsx("div",{className:"cal-years",role:"group","aria-label":"Year",children:c.map(i=>e.jsx("button",{type:"button","aria-pressed":i===h,onClick:()=>u(i),children:i},i))}),e.jsxs("div",{className:"cal-card",children:[e.jsx("div",{className:"cal-scroll",ref:f,children:e.jsxs("div",{className:"cal-grid",style:{gridTemplateColumns:`repeat(${g.length}, var(--cal-box))`},children:[b.map(i=>e.jsx("span",{className:"cal-month",style:{gridColumn:i.week+1,gridRow:1},children:i.label},i.label)),g.flatMap((i,y)=>i.map(a=>{if(a.getFullYear()!==h)return null;const d=k(a),l=s.get(d),_={gridColumn:y+1,gridRow:a.getDay()+2},D={className:"cal-day","data-future":a>o,"data-today":d===k(o),style:_};if(!l)return e.jsx("span",{...D},d);const S=`${ut(a)} · ${l.title}`;return e.jsx(I,{to:`/daily/${l.slug}`,...D,"data-filled":!0,"aria-label":S,title:S,onMouseEnter:()=>m(S),onMouseLeave:()=>m(null),onFocus:()=>m(S),onBlur:()=>m(null)},d)})),r.getFullYear()===h&&e.jsx("span",{className:"cal-started",style:{gridColumn:g.findIndex(i=>i.some(y=>k(y)===k(r)))+1,gridRow:9},children:"↑ started"})]})}),e.jsx("p",{className:"cal-hover","aria-live":"polite",children:v||" "})]})]})},pt=p.lazy(()=>F(()=>import("./NoteMarkdown-BaA4kryz.js"),__vite__mapDeps([0,1,2]))),N=t=>t?t.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).toLowerCase():"",A=t=>t?t.toLocaleDateString("en-US",{month:"long",year:"numeric"}).toLowerCase():"undated";function W({tags:t}){return t.length===0?null:e.jsx("span",{className:"daily-tags",children:t.map(n=>e.jsxs("span",{children:["#",n]},n))})}function E({note:t}){return e.jsx("div",{className:"daily-body",children:e.jsx(p.Suspense,{fallback:e.jsx("p",{className:"daily-loading",children:"loading…"}),children:e.jsx(pt,{content:t.content})})})}function yt({slug:t}){const n=w.findIndex(c=>c.slug===t),o=w[n];C(o?o.title:"Daily logs");const s=w[n-1],r=w[n+1];return e.jsxs("main",{children:[e.jsx(L,{subtitle:"Daily logs about what I'm learning"}),e.jsx("p",{children:e.jsx(I,{to:"/daily",children:"← all notes"})}),o?e.jsxs("article",{children:[e.jsxs("p",{className:"daily-date",children:[N(o.date)," · ",o.minutes," min"]}),e.jsx("h1",{className:"daily-single-title",children:o.title}),e.jsx(W,{tags:o.tags}),e.jsx(E,{note:o}),e.jsxs("nav",{className:"daily-pager","aria-label":"More notes",children:[r?e.jsxs(I,{to:`/daily/${r.slug}`,children:["← ",r.title]}):e.jsx("span",{}),s&&e.jsxs(I,{to:`/daily/${s.slug}`,children:[s.title," →"]})]})]}):e.jsx("p",{children:"This note isn't published."})]})}const ft=()=>{const{slug:t}=q();C(t?null:"Daily logs");const[n,o]=p.useState("all"),[s,r]=p.useState(!1),[c,h]=p.useState(()=>new Set),u=a=>h(d=>{const l=new Set(d);return l.has(a)?l.delete(a):l.add(a),l}),[g,b]=p.useState(()=>new Set([A(new Date)])),v=a=>b(d=>{const l=new Set(d);return l.has(a)?l.delete(a):l.add(a),l}),m=a=>{o(a),b(a==="all"?new Set([A(new Date)]):new Set(w.filter(d=>d.tags.includes(a)).map(d=>A(d.date))))};if(t)return e.jsx(yt,{slug:t});const f=["all",...new Set(w.flatMap(a=>a.tags))],i=w.filter(a=>n==="all"||a.tags.includes(n)),y=[];return i.forEach(a=>{const d=A(a.date),l=y.find(_=>_.label===d);l?l.notes.push(a):y.push({label:d,notes:[a]})}),e.jsxs("main",{children:[e.jsx(L,{subtitle:"Daily logs about what I'm learning"}),w.length===0?e.jsx("p",{className:"daily-empty",children:"No notes yet. Check back soon."}):e.jsxs(e.Fragment,{children:[e.jsx("p",{className:"daily-intro",children:"I try to write a few days a week. Some days I revisit fundamentals. Other days I dig into what I'm learning for work or topics I'm exploring for myself."}),e.jsx(gt,{notes:w}),f.length>1&&e.jsxs("div",{className:"daily-filters-wrap",children:[e.jsx("div",{id:"daily-filters",className:"daily-filters","data-expanded":s,role:"group","aria-label":"Filter by tag",children:f.map(a=>e.jsxs("button",{type:"button","aria-pressed":n===a,onClick:()=>m(a),children:["#",a," ",e.jsx("span",{className:"daily-count",children:a==="all"?w.length:w.filter(d=>d.tags.includes(a)).length})]},a))}),e.jsx("button",{type:"button",className:"daily-filters-more","aria-expanded":s,"aria-controls":"daily-filters",onClick:()=>r(a=>!a),children:s?"show fewer tags ▴":"show all tags ▾"})]}),y.map(a=>{const d=g.has(a.label);return e.jsxs("section",{children:[e.jsx("h2",{className:"daily-month",children:e.jsxs("button",{type:"button",className:"daily-month-toggle","aria-expanded":d,onClick:()=>v(a.label),children:[e.jsx("span",{className:"daily-month-caret","aria-hidden":"true",children:"▾"}),a.label,e.jsx("span",{className:"daily-month-count",children:a.notes.length})]})}),d&&e.jsx("ul",{className:"daily-entries",children:a.notes.map(l=>{const _=c.has(l.slug);return e.jsxs("li",{className:"daily-entry","data-open":_,children:[e.jsxs("div",{className:"daily-row",children:[e.jsxs("button",{type:"button",className:"daily-toggle","aria-expanded":_,onClick:()=>u(l.slug),children:[e.jsx("span",{className:"daily-date",children:N(l.date)}),e.jsxs("span",{className:"daily-heading",children:[e.jsx("span",{className:"daily-title",children:l.title}),e.jsx(W,{tags:l.tags})]}),e.jsxs("span",{className:"daily-meta",children:[l.minutes," min"]})]}),e.jsx(I,{to:`/daily/${l.slug}`,className:"daily-open","aria-label":`Open ${l.title} on its own page`,children:"open ↗"})]}),_&&e.jsx(E,{note:l})]},l.slug)})})]},a.label)})]})]})};export{ft as default};

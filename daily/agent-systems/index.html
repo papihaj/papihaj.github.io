@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore path encoded by 404.html redirect for GitHub Pages SPA routing.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>agent systems | Papiha Joharapurkar</title>
+    <meta name="description" content="Hello readers! As someone who's been working with agents for almost a year now, I wanted to do a couple logs dedicated to how I understand agents and how…" />
+    <link rel="canonical" href="https://joharapurkar.com/daily/agent-systems/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Papiha Joharapurkar" />
+    <meta property="og:title" content="agent systems | Papiha Joharapurkar" />
+    <meta property="og:description" content="Hello readers! As someone who's been working with agents for almost a year now, I wanted to do a couple logs dedicated to how I understand agents and how…" />
+    <meta property="og:url" content="https://joharapurkar.com/daily/agent-systems/" />
+    <meta property="article:published_time" content="2026-11-27" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Person","@id":"https://joharapurkar.com/#person","name":"Papiha Joharapurkar","url":"https://joharapurkar.com/","jobTitle":"Data Scientist","worksFor":{"@type":"Organization","name":"Sanofi"},"sameAs":["https://github.com/papihaj","https://www.linkedin.com/in/papihaj/","https://www.tiktok.com/@yapswithpaps","https://www.instagram.com/yapswithpaps/","https://x.com/papihaj","https://papihaj.substack.com/"]},{"@context":"https://schema.org","@type":"BlogPosting","headline":"agent systems","datePublished":"2026-11-27","dateModified":"2026-11-27","url":"https://joharapurkar.com/daily/agent-systems/","mainEntityOfPage":"https://joharapurkar.com/daily/agent-systems/","author":{"@id":"https://joharapurkar.com/#person"},"publisher":{"@id":"https://joharapurkar.com/#person"}}]</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <script type="module" crossorigin src="/assets/index-BHJVDSUF.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsuLzrfs.css">
+  </head>
+  <body>
+    <div id="root"><main><h1>Papiha Joharapurkar</h1><nav><a href="/">home</a> <a href="/work">work</a> <a href="/projects">projects</a> <a href="/daily">daily</a> <a href="/socials">socials</a></nav><article><h2>agent systems</h2><p><time datetime="2026-11-27">November 27, 2026</time></p><p>Hello readers! As someone who's been working with agents for almost a year now, I wanted to do a couple logs dedicated to how I understand agents and how I build them. In my day job, I am working to create agents to automate and make real world data workflows faster.</p>
+<p>I personally like to think of agents as a big while loop. While some condition, the agent will keep working and then after the condition is fulfilled, it will stop.</p>
+<pre><code>while condition:
+	agent goes brrrrr
+return final_output</code></pre>
+<p>Agents are composed of 3 parts:</p>
+<ol>
+<li>system - the design, architecture</li>
+<li>data - the context, training examples</li>
+<li>evaluations - this is important as bad evaluations can make a bad model look great. </li>
+</ol>
+<p>In this log, I will cover the agent system which has these pieces: planning and reasoning, memory, tools, actions, the environment and the LLM of course. I've done a <a href="https://joharapurkar.com/daily/agentic-evals-are-not-an-afterthought">brief dive into evaluations</a> but will go into that in a future log, and data I can cover afterwards as well.</p>
+<p>The agent refers to a LLM that has planning and reasoning capabilities, memories, and tools that they will use in combination to guide their actions. They will observe the environment and will act in the environment. Going back to the while loop, this means the agent can take actions and after some result from the environment is returned, the agentic loop can stop.</p>
+<p>Planning and reasoning capabilities can help agents break down problems. There's different types of reasoning (e.g. Chain of Thought or ReACT) but in general, reasoning helps us understand why agents might take certain actions. We can use their reasoning traces to debug and adjust prompts. For instance, an agent acts in a certain way - if we look at their reasoning traces, we can deep dive on why and adjust the prompting or some other parameter.</p>
+<p>Tools refers to external capabilities available to the model. For instance, a tool could include an isolated module such as disease-code-retrieval. We could instruct the agent that it has access to such a tool and we can provide a tool registry to the agent so that it can call this specific tool if the codes are needed by the agent to execute a task.</p>
+<p>Memory I have covered in a <a href="https://joharapurkar.com/daily/memory-with-agents-in-smallville">prior log as well</a>, and this refers to past experiences that can be used as specific knowledge for agents to further act on. Often, the context stream cannot retain all event data especially if agents are long-horizon working agents, so memory is important in these cases to ensure past insights can be compacted for agents to draw from afterwards for context. Not every agent needs memory - the alternative could be that data is being saved in external stores instead. In the project that I work in, rather than saving memories, we save states and checkpoints for the ID of the run so that future subagents or the agent continuing to work can retrieve that ID - I suppose in a way, this is closer to persistence rather than memory.</p>
+<p>The environment is what the agent works in and executes actions and uses the outputs to feed back into itself. For instance, if an agent needed to run a SQL query, it could have access to a Snowflake environment and warehouse to run the query and after running, it's outputs would be returned back to the agent.</p>
+<p>The LLM is the main brain - the reasoning agent and the degree to which it has control can impact the whole agent's flexibility. If it is the one deciding which steps to take next, which sub-agents to call, it will be a more agentic driven example. This is where the LLM is processing the memories, the plans and decide the tools to call and observe the outputs and deciding what to do next. Alternatively, if there is code deciding the next steps or actions, this is more of a workflow system rather than agentic. This dial of more agentic or more code-driven can be upto the designers of the agent system.</p></article><p><a href="/daily/">All daily logs</a></p></main></div>
+  </body>
+</html>
